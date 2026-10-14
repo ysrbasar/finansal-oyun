@@ -1,0 +1,223 @@
+import type { Module } from "../../types";
+
+export const m05: Module = {
+  id: "m05",
+  order: 5,
+  title: "Birikim ve Hedefler",
+  place: "Birikim Dağı",
+  description: "Hedef belirle, kalan tutarı hesapla, küçük birikimlerin büyüdüğünü gör.",
+  icon: "⛰️",
+  color: "#FF7A70",
+  topic: "birikim",
+  lessons: [
+    {
+      id: "m05-l1",
+      moduleId: "m05",
+      title: "Birikim ve hedef",
+      goal: "Birikimin ne olduğunu, hedef tutarı ve hedefe kalan miktarı hesaplamayı öğreneceğim.",
+      story: [
+        {
+          text: "Kumbi, Birikim Dağı'nın zirvesindeki dürbünü almak istiyor. Dürbün 80 TL. Kumbi'nin kavanozunda 30 TL var.",
+          visual: { kind: "jar", saved: 30, target: 80, caption: "Hedef: 80 TL dürbün" },
+        },
+        {
+          text: "Paranın bir kısmını şimdi harcamayıp ileride kullanmak için ayırmaya birikim denir. Kumbi'nin hedefe kalan tutarı: 80 - 30 = 50 TL.",
+        },
+      ],
+      example: {
+        title: "Üç sayı, bir hedef",
+        text: "Hedef tutarı: 80 TL. Mevcut birikim: 30 TL. Kalan: 80 - 30 = 50 TL. Bu üç sayı her birikim planının temelidir.",
+        visual: { kind: "jar", saved: 30, target: 80 },
+      },
+      easierExample:
+        "Merdiven çıktığını düşün. Hedef en üst basamak. Şu an durduğun basamak birikimin. Kalan basamakları saymak için üstten bulunduğun yeri çıkarırsın.",
+      activities: [
+        {
+          id: "m05-l1-q1",
+          type: "numeric",
+          topic: "birikim",
+          difficulty: 1,
+          prompt: "Bir çocuğun 30 TL'si var. Hedefi 80 TL. Kaç TL daha biriktirmesi gerekir?",
+          visual: { kind: "jar", saved: 30, target: 80 },
+          answer: 50,
+          unit: "TL",
+          hint: "Hedeften mevcut birikimi çıkar: 80 - 30.",
+          explanation: "80 - 30 = 50 TL daha biriktirmesi gerekir.",
+        },
+        {
+          id: "m05-l1-q2",
+          type: "match",
+          topic: "birikim",
+          difficulty: 2,
+          prompt: "Her kavramı doğru sayıyla eşleştir. (Hedef dürbün 80 TL, kavanozda 30 TL var.)",
+          pairs: [
+            { left: "Hedef tutarı", right: "80 TL" },
+            { left: "Mevcut birikim", right: "30 TL" },
+            { left: "Kalan tutar", right: "50 TL" },
+          ],
+          hint: "Hedef ulaşmak istediğin sayı, mevcut birikim kavanozdaki sayı.",
+          explanation: "Hedef 80 TL, kavanozda 30 TL var, kalan ise 80 - 30 = 50 TL.",
+        },
+        {
+          id: "m05-l1-d1",
+          type: "decision",
+          topic: "birikim",
+          difficulty: 1,
+          prompt: "Kumbi'ye 10 sanal TL hediye geldi. Dürbün hedefi için kavanozunda 30 TL var. Ne yapmalı?",
+          visual: { kind: "jar", saved: 30, target: 80 },
+          choices: [
+            { id: "a", text: "10 TL'yi kavanoza atar, birikim 40 TL olur.", feedback: "Hedefe bir adım daha! Artık kalan tutar 40 TL." },
+            { id: "b", text: "5 TL'yi kavanoza, 5 TL'yi küçük bir atıştırmalığa ayırır.", feedback: "Dengeli bir plan! Hem hedefe yaklaşıyor hem küçük bir keyif yapıyor." },
+            { id: "c", text: "Kavanozdaki 30 TL'yi de çıkarıp hepsini harcar.", feedback: "Bu durumda hedef baştan başlar. Birikimi korumak hedefe ulaşmanın anahtarıdır." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Hedefe yaklaşmak mı, uzaklaşmak mı istiyoruz?",
+          explanation: "Yeni gelen paranın bir kısmını ya da tamamını hedefe ayırmak birikimi büyütür.",
+        },
+      ],
+      review: [
+        "Birikim, parayı ileride kullanmak için ayırmaktır.",
+        "Kalan tutar = hedef tutarı - mevcut birikim.",
+        "Her yeni katkı hedefe kalan tutarı azaltır.",
+      ],
+    },
+    {
+      id: "m05-l2",
+      moduleId: "m05",
+      title: "Küçük adımlar, büyük birikim",
+      goal: "Düzenli küçük birikimlerin zamanla büyüdüğünü ve birikim planı yapmayı öğreneceğim.",
+      story: [
+        {
+          text: "Kumbi her hafta kavanoza 10 TL atmaya karar verdi. 1. hafta 10, 2. hafta 20, 3. hafta 30 TL...",
+          visual: { kind: "emoji", items: ["🫙10", "🫙20", "🫙30", "🫙40"] },
+        },
+        {
+          text: "Küçük görünen paralar düzenli biriktirilince büyür. Kaç haftada hedefe ulaşacağını hesaplamak bir birikim planıdır.",
+        },
+      ],
+      example: {
+        title: "Kaç hafta sürer?",
+        text: "Hedef 50 TL ve Kumbi her hafta 10 TL biriktiriyor. 10, 20, 30, 40, 50: 5 haftada hedefe ulaşır. Haftada 5 TL biriktirseydi 10 hafta sürerdi.",
+        visual: { kind: "jar", saved: 20, target: 50 },
+      },
+      easierExample:
+        "Her hafta aynı sayıyı ekleyerek say: 10, 20, 30... Hedefe ulaşana kadar kaç kez saydığına bak. Bu, kaç hafta gerektiğini gösterir.",
+      activities: [
+        {
+          id: "m05-l2-q1",
+          type: "numeric",
+          topic: "birikim",
+          difficulty: 2,
+          prompt: "Her hafta 10 TL biriktirirsen 60 TL'lik hedefe kaç haftada ulaşırsın?",
+          answer: 6,
+          unit: "hafta",
+          hint: "10'ar 10'ar say: 10, 20, 30... 60'a kadar kaç kez saydın?",
+          explanation: "10, 20, 30, 40, 50, 60: 6 hafta.",
+        },
+        {
+          id: "m05-l2-q2",
+          type: "truefalse",
+          topic: "birikim",
+          difficulty: 1,
+          prompt: "Küçük paralar düzenli biriktirilirse zamanla büyük bir tutar olabilir.",
+          answer: true,
+          hint: "Kumbi'nin her hafta 10 TL attığı kavanoz ne oldu?",
+          explanation: "Doğru! Haftada 10 TL bile 10 haftada 100 TL olur.",
+        },
+        {
+          id: "m05-l2-d1",
+          type: "decision",
+          topic: "birikim",
+          difficulty: 2,
+          prompt: "40 TL'lik bir kitap için birikim yapacaksın. Hangi plan sana uygun?",
+          visual: { kind: "jar", saved: 0, target: 40 },
+          choices: [
+            { id: "a", text: "Haftada 10 TL, 4 haftada biter.", feedback: "Hızlı bir plan! Her hafta 10 TL ayırabiliyorsan harika." },
+            { id: "b", text: "Haftada 5 TL, 8 haftada biter.", feedback: "Daha yavaş ama daha kolay bir plan. Sürdürebileceğin plan en iyi plandır." },
+            { id: "c", text: "Plan yapmadan, aklıma geldikçe atarım.", feedback: "Bu da olabilir ama ne zaman ulaşacağını bilmek zorlaşır. Küçük bir plan işini kolaylaştırır." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Her plan için hesapla: 4 × 10 = ? ve 8 × 5 = ?",
+          explanation: "Farklı hızlarda planlar olabilir. Önemli olan hesaplanabilir ve sürdürülebilir olmasıdır.",
+        },
+      ],
+      review: [
+        "Düzenli küçük birikimler zamanla büyür.",
+        "Kaç hafta gerektiğini bulmak için haftalık birikimi hedefe kadar sayarız.",
+        "Sürdürebileceğin plan en iyi plandır.",
+      ],
+    },
+    {
+      id: "m05-l3",
+      moduleId: "m05",
+      title: "Beklemek ve planı yeniden düzenlemek",
+      goal: "Birikim için bazı seçimlerden vazgeçmeyi, beklemenin değerini ve plan bozulunca yeniden düzenlemeyi öğreneceğim.",
+      story: [
+        {
+          text: "Kumbi dürbün için biriktirirken her gün dondurmacının önünden geçiyor. Bazen dondurma almak yerine 10 TL'yi kavanoza atıyor.",
+          visual: { kind: "emoji", items: ["🍦", "↔️", "🫙"] },
+        },
+        {
+          text: "Şimdi küçük bir şeyden vazgeçip daha sonra daha büyük bir şeye sahip olmaya ertelenmiş mutluluk denir. Bu bir süper güçtür!",
+        },
+      ],
+      example: {
+        title: "Plan bozulursa?",
+        text: "Kumbi'nin planı haftada 10 TL'ydi. Bir hafta arkadaşının doğum günü için hediye aldı ve sadece 5 TL biriktirebildi. Planını güncelledi: Hedefe 1 hafta daha geç ulaşacak. Vazgeçmedi, sadece yeniden planladı.",
+        visual: { kind: "emoji", items: ["📅", "🎁", "🔁", "🎯"] },
+      },
+      easierExample:
+        "Bir oyunda bir bölümü geçemezsen oyunu silmezsin, tekrar denersin. Birikim planı da öyle: Bir hafta aksarsa, plan biraz uzar ama devam eder.",
+      activities: [
+        {
+          id: "m05-l3-q1",
+          type: "mcq",
+          topic: "birikim",
+          difficulty: 2,
+          prompt: "\"Ertelenmiş mutluluk\" ne demektir?",
+          choices: [
+            { id: "a", text: "Şimdi küçük bir şeyden vazgeçip sonra daha büyük bir şeye sahip olmak" },
+            { id: "b", text: "Hiçbir şeyden hiç mutlu olmamak" },
+            { id: "c", text: "Her istediğini hemen almak" },
+          ],
+          answer: "a",
+          hint: "Kumbi dondurma yerine parayı kavanoza attığında neyi bekliyordu?",
+          explanation: "Ertelenmiş mutluluk, bugün beklemeyi seçip gelecekte daha büyük bir hedefe ulaşmaktır.",
+        },
+        {
+          id: "m05-l3-q2",
+          type: "numeric",
+          topic: "birikim",
+          difficulty: 3,
+          prompt: "Kumbi'nin kavanozunda 45 TL vardı. 15 TL'yi arkadaşına hediye almak için kullandı. Hedefi 80 TL. Şimdi kaç TL daha biriktirmesi gerekiyor?",
+          visual: { kind: "jar", saved: 30, target: 80 },
+          answer: 50,
+          unit: "TL",
+          hint: "Önce kavanozda kalanı bul: 45 - 15. Sonra hedeften çıkar.",
+          explanation: "45 - 15 = 30 TL kaldı. 80 - 30 = 50 TL daha gerekiyor.",
+        },
+        {
+          id: "m05-l3-d1",
+          type: "decision",
+          topic: "birikim",
+          difficulty: 2,
+          prompt: "Biriktirdiğin paranın bir kısmını beklenmedik bir şey için (kaybolan bere yerine yenisi) kullandın. Hedefin uzaklaştı. Ne yaparsın?",
+          visual: { kind: "emoji", items: ["🧢", "🫙", "📉"] },
+          choices: [
+            { id: "a", text: "Planımı güncellerim, biraz daha uzun sürecek ama devam ederim.", feedback: "Esnek ve kararlı! Planlar bazen değişir, önemli olan devam etmek." },
+            { id: "b", text: "Hedefimi şimdilik biraz daha küçük bir hedefle değiştiririm.", feedback: "Bu da akıllıca! Hedefi gerçekçi hâle getirmek bir plan becerisidir." },
+            { id: "c", text: "Birikimden tamamen vazgeçerim.", feedback: "Hayal kırıklığı normal ama vazgeçmek gerekmez. Plan biraz uzasa da hedefe ulaşabilirsin." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Oyunda bir bölümü geçemeyince ne yapıyordun?",
+          explanation: "Plan bozulduğunda yeniden düzenlemek, birikim yolculuğunun normal bir parçasıdır.",
+        },
+      ],
+      review: [
+        "Birikim için bazen küçük isteklerden vazgeçeriz.",
+        "Ertelenmiş mutluluk: Bugün bekle, yarın daha büyüğüne ulaş.",
+        "Plan bozulursa vazgeçmeyiz, yeniden düzenleriz.",
+      ],
+    },
+  ],
+};

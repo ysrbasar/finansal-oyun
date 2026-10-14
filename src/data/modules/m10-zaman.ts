@@ -1,0 +1,222 @@
+import type { Module } from "../../types";
+
+export const m10: Module = {
+  id: "m10",
+  order: 10,
+  title: "Fiyatlar ve Zaman",
+  place: "Ekonomi Zaman Tüneli",
+  description: "Fiyatlar neden değişir? Aynı para zamanla ne alır? Geleceği planla.",
+  icon: "⏳",
+  color: "#2BB3C0",
+  topic: "zaman",
+  lessons: [
+    {
+      id: "m10-l1",
+      moduleId: "m10",
+      title: "Fiyatlar neden değişir?",
+      goal: "Fiyatların zaman içinde değişebileceğini ve bunun bazı nedenlerini öğreneceğim.",
+      story: [
+        {
+          text: "Kumbi zaman tüneline girdi. Yazın çilek bolken pazarda ucuzdu. Kışın az bulunduğu için daha pahalıydı.",
+          visual: { kind: "emoji", items: ["☀️🍓", "→", "❄️🍓"] },
+        },
+        {
+          text: "Fiyatlar farklı nedenlerle değişebilir: Bir ürün az bulunursa, yapımı daha pahalıya gelirse ya da onu isteyen çok kişi olursa. Bazen artar, bazen düşer.",
+        },
+      ],
+      example: {
+        title: "Mevsim ve fiyat",
+        text: "Bu bir örnek senaryo: Yazın 1 kilo domates 20 TL, kışın 35 TL. Kışın domates seralarda yetiştirildiği için yapımı daha pahalıya geliyor. Yazın tekrar ucuzlayabilir.",
+        visual: { kind: "price", items: [{ emoji: "🍅", name: "Yaz", price: 20 }, { emoji: "🍅", name: "Kış", price: 35 }], caption: "Gerçek piyasa verisi değildir" },
+      },
+      easierExample:
+        "Bir şey azsa ve onu isteyen çoksa fiyatı genelde yükselir. Bir şey çoksa ve isteyen azsa fiyatı düşebilir. Fiyatlar sabit değil, hareket edebilir.",
+      activities: [
+        {
+          id: "m10-l1-q1",
+          type: "mcq",
+          topic: "zaman",
+          difficulty: 2,
+          prompt: "Bir meyve az bulunuyorsa ve onu isteyen çok kişi varsa fiyatına genelde ne olur?",
+          choices: [
+            { id: "a", text: "Yükselebilir" },
+            { id: "b", text: "Her zaman sıfır olur" },
+            { id: "c", text: "Hiçbir zaman değişmez" },
+          ],
+          answer: "a",
+          hint: "Kışın çileğin fiyatına ne olmuştu?",
+          explanation: "Az bulunan ve çok istenen ürünlerin fiyatı genelde yükselebilir.",
+        },
+        {
+          id: "m10-l1-q2",
+          type: "truefalse",
+          topic: "zaman",
+          difficulty: 2,
+          prompt: "Fiyatlar sadece artabilir, hiçbir zaman düşmez.",
+          answer: false,
+          hint: "Kışın pahalı olan domates yazın ne olabiliyordu?",
+          explanation: "Fiyatlar artabilir de düşebilir de. Mevsim, bolluk ve maliyet gibi şeyler etkiler.",
+        },
+        {
+          id: "m10-l1-d1",
+          type: "decision",
+          topic: "zaman",
+          difficulty: 2,
+          prompt: "Ailenle pazardasınız. Çilek bu hafta çok pahalı ama mevsimi yakında başlayacak. Ne önerirsin?",
+          visual: { kind: "emoji", items: ["🍓", "📈", "📅"] },
+          choices: [
+            { id: "a", text: "Bu hafta mevsimdeki başka bir meyve alalım.", feedback: "Akıllı bir alternatif! Mevsim meyveleri genelde daha uygun olabilir." },
+            { id: "b", text: "Çilek mevsimini bekleyelim.", feedback: "Beklemek de iyi bir plan; fiyat düşebilir. Ama kesin olduğunu bilemeyiz." },
+            { id: "c", text: "Fiyatı ne olursa olsun hemen çok çilek alalım.", feedback: "İstemek normal; ama aynı paraya başka ihtiyaçları da karşılayabilirsiniz." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Yakında ne başlayacak? Başka seçenekler var mı?",
+          explanation: "Fiyatlar zamanla değişebilir. Alternatifleri düşünmek ya da beklemek iyi kararlardır.",
+        },
+      ],
+      review: [
+        "Fiyatlar zamanla değişebilir.",
+        "Az bulunma, maliyet ve talep fiyatı etkiler.",
+        "Fiyatlar artabilir de düşebilir de.",
+      ],
+    },
+    {
+      id: "m10-l2",
+      moduleId: "m10",
+      title: "Aynı para, farklı miktar",
+      goal: "Fiyatlar değişince aynı paranın aynı şeyi satın alamayabileceğini (enflasyonu) anlayacağım.",
+      story: [
+        {
+          text: "Zaman tünelinde bir simülasyon: Bir zamanlar bir gofret 10 TL'ydi. Kumbi'nin 10 TL'si ona tam yetiyordu.",
+          visual: { kind: "price", items: [{ emoji: "🍫", name: "O zaman", price: 10 }], caption: "Hayali bir senaryodur" },
+        },
+        {
+          text: "Daha sonraki bir zamanda aynı gofret 12 TL oldu. Kumbi'nin 10 TL'si artık yetmiyor! Fiyatların genel olarak yükselmesine enflasyon denir.",
+          visual: { kind: "price", items: [{ emoji: "🍫", name: "Daha sonra", price: 12 }] },
+        },
+      ],
+      example: {
+        title: "Satın alma gücü",
+        text: "Paranın ne kadar şey alabildiğine satın alma gücü denir. 30 TL ile gofret 10 TL iken 3 gofret alınır. Gofret 15 TL olursa sadece 2 gofret alınır. Para aynı, aldığı şey azaldı.",
+        visual: { kind: "emoji", items: ["30 TL", "→", "🍫🍫🍫", "→", "🍫🍫"] },
+      },
+      easierExample:
+        "Paranı bir kova gibi düşün, ürünleri de taş. Taşlar büyürse (fiyatlar artarsa) aynı kovaya daha az taş sığar. Kova değişmedi ama içine sığan azaldı.",
+      activities: [
+        {
+          id: "m10-l2-q1",
+          type: "numeric",
+          topic: "zaman",
+          difficulty: 2,
+          prompt: "Gofret 10 TL'den 12 TL'ye çıktı. Kumbi'nin 10 TL'si var. Gofret için kaç TL daha gerekir?",
+          answer: 2,
+          unit: "TL",
+          hint: "Yeni fiyattan elindeki parayı çıkar: 12 - 10.",
+          explanation: "12 - 10 = 2 TL daha gerekir.",
+        },
+        {
+          id: "m10-l2-q2",
+          type: "numeric",
+          topic: "zaman",
+          difficulty: 3,
+          prompt: "30 TL'n var. Gofretin fiyatı 15 TL olursa kaç gofret alabilirsin?",
+          answer: 2,
+          unit: "gofret",
+          hint: "15'er 15'er say: 15, 30... Kaç kez saydın?",
+          explanation: "15 + 15 = 30, yani 2 gofret alabilirsin. Fiyat 10 TL iken 3 tane alabiliyordun.",
+        },
+        {
+          id: "m10-l2-d1",
+          type: "decision",
+          topic: "zaman",
+          difficulty: 3,
+          prompt: "Birikimini yaparken hedefindeki ürünün fiyatı 50 TL'den 55 TL'ye çıktı. Ne yaparsın?",
+          visual: { kind: "jar", saved: 40, target: 55 },
+          choices: [
+            { id: "a", text: "Hedefimi 55 TL'ye günceller, planıma devam ederim.", feedback: "Çok iyi! Fiyat değişince planı da güncellemek gerekir." },
+            { id: "b", text: "Aynı işi gören, bütçeme daha uygun bir alternatife bakarım.", feedback: "Akıllıca! Alternatif aramak da bir finans becerisidir." },
+            { id: "c", text: "Fiyatın düşmesini beklemeden hedefimi tamamen bırakırım.", feedback: "Hedeften vazgeçmek gerekmez. 15 TL daha biriktirerek ulaşabilirsin." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Kavanozda 40 TL var. Yeni hedefe ne kadar kaldı?",
+          explanation: "Fiyatlar değişince hedefi güncellemek ya da alternatif aramak iyi bir plan becerisidir.",
+        },
+      ],
+      review: [
+        "Fiyatlar genel olarak yükselirse buna enflasyon denir.",
+        "Satın alma gücü: Paranın ne kadar şey alabildiği.",
+        "Bu bölümdeki fiyatlar örnek senaryolardır.",
+      ],
+    },
+    {
+      id: "m10-l3",
+      moduleId: "m10",
+      title: "Geleceği planlamak",
+      goal: "Gelecek için plan yapmanın ve fiyat değişimlerini hesaba katmanın önemini öğreneceğim.",
+      story: [
+        {
+          text: "Zaman tünelinin sonunda Kumbi bir harita buldu. Haritada şöyle yazıyordu: \"Geleceği tam bilemezsin ama ona hazırlanabilirsin.\"",
+          visual: { kind: "emoji", items: ["🗺️", "🔭", "🌅"] },
+        },
+        {
+          text: "Gelecekte fiyatların ne olacağını kesin bilemeyiz. Bu yüzden planlarımıza küçük bir pay ekleriz ve planlarımızı ara ara kontrol ederiz.",
+        },
+      ],
+      example: {
+        title: "Küçük bir pay bırak",
+        text: "Ece 3 ay sonra 60 TL'lik bir oyun almak istiyor. Fiyat değişebilir diye hedefini 65 TL yaptı. Fiyat aynı kalırsa 5 TL'si artacak; artarsa da hazırlıklı olacak.",
+        visual: { kind: "jar", saved: 25, target: 65 },
+      },
+      easierExample:
+        "Pikniğe giderken hava güneşli görünse de yanına ince bir hırka alırsın, belki serinler. Para planında da küçük bir pay bırakmak böyle bir hazırlıktır.",
+      activities: [
+        {
+          id: "m10-l3-q1",
+          type: "truefalse",
+          topic: "zaman",
+          difficulty: 2,
+          prompt: "Bugünün fiyatı gelecekte kesinlikle aynı kalır.",
+          answer: false,
+          hint: "Zaman tünelinde gofretin fiyatına ne olmuştu?",
+          explanation: "Fiyatların gelecekte ne olacağını kesin bilemeyiz. Aynı kalabilir, artabilir ya da düşebilir.",
+        },
+        {
+          id: "m10-l3-q2",
+          type: "mcq",
+          topic: "zaman",
+          difficulty: 2,
+          prompt: "Ece neden hedefini 60 TL yerine 65 TL yaptı?",
+          choices: [
+            { id: "a", text: "Fiyat değişebileceği için küçük bir pay bıraktı" },
+            { id: "b", text: "Daha çok harcamak istediği için" },
+            { id: "c", text: "Hesap yapmayı unuttuğu için" },
+          ],
+          answer: "a",
+          hint: "Piknikteki ince hırkayı hatırla.",
+          explanation: "Ece, fiyat değişirse hazırlıklı olmak için planına küçük bir pay ekledi.",
+        },
+        {
+          id: "m10-l3-d1",
+          type: "decision",
+          topic: "zaman",
+          difficulty: 2,
+          prompt: "Yaz tatilinde kullanmak için bir şeye birikim yapıyorsun. Planını nasıl kontrol edersin?",
+          visual: { kind: "emoji", items: ["📅", "🫙", "🔍"] },
+          choices: [
+            { id: "a", text: "Her ay birikimimi ve ürünün fiyatını kontrol ederim.", feedback: "Düzenli kontrol, sürprizleri önler. Harika bir alışkanlık!" },
+            { id: "b", text: "Hedefime küçük bir pay ekler, ara ara kontrol ederim.", feedback: "Hazırlıklı bir planlayıcı! Pay bırakmak akıllıca." },
+            { id: "c", text: "Tatil gelince bakarım.", feedback: "Son ana bırakırsan fiyat değişmişse hazırlıksız kalabilirsin. Ara ara bakmak daha iyi." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Fiyatlar zamanla değişebiliyorsa ne zaman kontrol etmek mantıklı?",
+          explanation: "Gelecek için plan yapmak; pay bırakmayı ve planı düzenli kontrol etmeyi içerir.",
+        },
+      ],
+      review: [
+        "Geleceği kesin bilemeyiz ama planlayabiliriz.",
+        "Planlara küçük bir pay bırakmak hazırlıklı olmaktır.",
+        "Planlarımızı ara ara kontrol ederiz.",
+      ],
+    },
+  ],
+};

@@ -1,0 +1,222 @@
+import type { Module } from "../../types";
+
+export const m03: Module = {
+  id: "m03",
+  order: 3,
+  title: "Paramın Değeri",
+  place: "Değer Vadisi",
+  description: "Tutarları karşılaştır, topla, çıkar; fiyat ile faydayı birlikte düşün.",
+  icon: "⚖️",
+  color: "#FFD166",
+  topic: "deger",
+  lessons: [
+    {
+      id: "m03-l1",
+      moduleId: "m03",
+      title: "Büyük mü, küçük mü?",
+      goal: "Para tutarlarını karşılaştırmayı ve aralarındaki farkı bulmayı öğreneceğim.",
+      story: [
+        {
+          text: "Değer Vadisi'nde iki pazar tezgâhı var. Birinde elma 15 TL, diğerinde 12 TL. Hangisi daha ucuz?",
+          visual: { kind: "price", items: [{ emoji: "🍎", name: "1. tezgâh", price: 15 }, { emoji: "🍎", name: "2. tezgâh", price: 12 }], caption: "Örnek fiyatlar" },
+        },
+        {
+          text: "12, 15'ten küçük. Fark ise 15 - 12 = 3 TL. Karşılaştırmak, en büyük ve en küçüğü bulmak para kararlarının ilk adımıdır.",
+        },
+      ],
+      example: {
+        title: "Fark ne kadar?",
+        text: "Bir kalem 8 TL, bir silgi 5 TL. Kalem silgiden 8 - 5 = 3 TL daha pahalı. Farkı bulmak için büyük sayıdan küçüğü çıkarırız.",
+        visual: { kind: "price", items: [{ emoji: "✏️", name: "Kalem", price: 8 }, { emoji: "🧽", name: "Silgi", price: 5 }] },
+      },
+      easierExample:
+        "İki fiyatı yan yana koy. Hangisi daha çok sayıya sahipse o daha pahalıdır. Aradaki farkı bulmak için küçükten büyüğe doğru say: 5'ten 8'e kadar 3 adım var.",
+      activities: [
+        {
+          id: "m03-l1-q1",
+          type: "mcq",
+          topic: "deger",
+          difficulty: 1,
+          prompt: "Hangisi daha pahalı?",
+          choices: [
+            { id: "a", text: "45 TL'lik top", emoji: "⚽" },
+            { id: "b", text: "54 TL'lik top", emoji: "🏀" },
+          ],
+          answer: "b",
+          hint: "Önce onlar basamağına bak: 4 onluk mu daha büyük, 5 onluk mu?",
+          explanation: "54, 45'ten büyüktür. Rakamlar aynı olsa da yerleri değişince değer değişir.",
+        },
+        {
+          id: "m03-l1-q2",
+          type: "numeric",
+          topic: "deger",
+          difficulty: 2,
+          prompt: "Bir kitap 35 TL, bir dergi 20 TL. Kitap dergiden kaç TL daha pahalı?",
+          visual: { kind: "price", items: [{ emoji: "📕", name: "Kitap", price: 35 }, { emoji: "📰", name: "Dergi", price: 20 }] },
+          answer: 15,
+          unit: "TL",
+          hint: "Farkı bulmak için büyük fiyattan küçüğü çıkar: 35 - 20 = ?",
+          explanation: "35 - 20 = 15 TL. Kitap 15 TL daha pahalı.",
+        },
+        {
+          id: "m03-l1-d1",
+          type: "decision",
+          topic: "deger",
+          difficulty: 1,
+          prompt: "Aynı su şişesi bir dükkânda 10 TL, yan dükkânda 7 TL. İkisi de aynı marka ve aynı boyutta. Hangisini seçersin?",
+          visual: { kind: "price", items: [{ emoji: "💧", name: "A dükkânı", price: 10 }, { emoji: "💧", name: "B dükkânı", price: 7 }] },
+          choices: [
+            { id: "a", text: "7 TL'lik olanı, 3 TL bana kalır.", feedback: "Akıllıca! Ürünler aynıysa ucuz olanı seçmek tasarruf sağlar." },
+            { id: "b", text: "10 TL'lik olanı, pahalı olan daha iyidir.", feedback: "Ürün tamamen aynıysa fazladan ödemek sana bir şey kazandırmaz." },
+          ],
+          accepted: ["a"],
+          hint: "İki ürün tıpatıp aynı. Fazladan ödediğin 3 TL sana ne kazandırır?",
+          explanation: "Aynı ürün için daha az ödemek, kalan parayı başka bir şeye ayırmanı sağlar.",
+        },
+      ],
+      review: [
+        "Fiyatları karşılaştırınca büyük olan daha pahalıdır.",
+        "Farkı bulmak için büyükten küçüğü çıkarırız.",
+        "Aynı ürün için daha az ödemek tasarruftur.",
+      ],
+    },
+    {
+      id: "m03-l2",
+      moduleId: "m03",
+      title: "Aynı parayla farklı seçenekler",
+      goal: "Aynı bütçeyle hangi farklı şeyleri alabileceğimi hesaplayacağım.",
+      story: [
+        {
+          text: "Kumbi'nin 30 TL'si var. Bir sandviç 15 TL, bir meyve suyu 10 TL, bir kurabiye 5 TL.",
+          visual: { kind: "price", items: [{ emoji: "🥪", name: "Sandviç", price: 15 }, { emoji: "🧃", name: "Meyve suyu", price: 10 }, { emoji: "🍪", name: "Kurabiye", price: 5 }] },
+        },
+        {
+          text: "Sandviç + meyve suyu + kurabiye = 30 TL. Ya da iki sandviç = 30 TL. Aynı parayla farklı seçenekler yapılabilir!",
+        },
+      ],
+      example: {
+        title: "Kalan parayı hesapla",
+        text: "40 TL'si olan Deniz 25 TL'lik bir boya seti aldı. Kalan parası: 40 - 25 = 15 TL. Bu 15 TL ile 10 TL'lik bir resim defteri de alabilir, 5 TL'si kalır.",
+        visual: { kind: "money", values: [20, 20] },
+      },
+      easierExample:
+        "Paranı bir pasta gibi düşün. Her aldığın şey pastadan bir dilim götürür. Dilimleri farklı büyüklükte seçebilirsin ama pastanın tamamından fazlasını yiyemezsin.",
+      activities: [
+        {
+          id: "m03-l2-q1",
+          type: "numeric",
+          topic: "deger",
+          difficulty: 2,
+          prompt: "50 TL'n var. 18 TL'lik bir kalem kutusu alırsan kaç TL'n kalır?",
+          answer: 32,
+          unit: "TL",
+          hint: "50'den 18 çıkar. Önce 50 - 10 = 40, sonra 40 - 8 = ?",
+          explanation: "50 - 18 = 32 TL kalır.",
+        },
+        {
+          id: "m03-l2-q2",
+          type: "mcq",
+          topic: "deger",
+          difficulty: 2,
+          prompt: "20 TL'n var. Hangisini alabilirsin? (Kalem 6 TL, defter 12 TL, boya 15 TL)",
+          visual: { kind: "price", items: [{ emoji: "✏️", name: "Kalem", price: 6 }, { emoji: "📒", name: "Defter", price: 12 }, { emoji: "🖍️", name: "Boya", price: 15 }] },
+          choices: [
+            { id: "a", text: "Defter + boya" },
+            { id: "b", text: "Kalem + defter" },
+            { id: "c", text: "Kalem + boya + defter" },
+          ],
+          answer: "b",
+          hint: "Her seçeneği topla ve 20 ile karşılaştır.",
+          explanation: "Kalem + defter = 18 TL, 20 TL'ye sığar. Defter + boya = 27 TL, üçü birden 33 TL; ikisi de 20'yi aşar.",
+        },
+        {
+          id: "m03-l2-d1",
+          type: "decision",
+          topic: "deger",
+          difficulty: 2,
+          prompt: "30 TL'n var. Kantinde öğle yemeği için seçenekler: Tost 20 TL, ayran 8 TL, çikolata 12 TL. Nasıl seçersin?",
+          visual: { kind: "price", items: [{ emoji: "🥪", name: "Tost", price: 20 }, { emoji: "🥛", name: "Ayran", price: 8 }, { emoji: "🍫", name: "Çikolata", price: 12 }] },
+          choices: [
+            { id: "a", text: "Tost + ayran = 28 TL, 2 TL kalır.", feedback: "Doyurucu ve bütçeye uygun bir seçim! 2 TL de cebinde kaldı." },
+            { id: "b", text: "Tost + çikolata = 32 TL.", feedback: "Hesapla bakalım: 20 + 12 = 32 TL. Bu 30 TL'yi aşıyor, maalesef yetmez." },
+            { id: "c", text: "Ayran + çikolata = 20 TL, 10 TL kalır.", feedback: "Bütçeye uyuyor ve para da kaldı. Ama öğle yemeği için yeterince doyurucu mu, bir düşün." },
+          ],
+          accepted: ["a", "c"],
+          hint: "Her seçeneği topla. 30 TL'yi aşan seçenek alınabilir mi?",
+          explanation: "Bütçeye uyan birden fazla seçenek olabilir. Doyuruculuğu da düşünmek iyi bir karar verir.",
+        },
+      ],
+      review: [
+        "Aynı parayla farklı seçenekler oluşturabiliriz.",
+        "Kalan para = elimizdeki para - harcadığımız para.",
+        "Toplam, elimizdeki paradan fazla olamaz.",
+      ],
+    },
+    {
+      id: "m03-l3",
+      moduleId: "m03",
+      title: "Fiyat ve fayda",
+      goal: "En ucuzun her zaman en iyi seçenek olmayabileceğini; kalite, dayanıklılık ve kullanım amacını düşünmeyi öğreneceğim.",
+      story: [
+        {
+          text: "Kumbi'nin 50 TL bütçesi var. 20 TL'lik ince bir defter ile 35 TL'lik, kapağı sert ve sayfaları kalın bir defter arasında kararsız.",
+          visual: { kind: "price", items: [{ emoji: "📓", name: "İnce defter", price: 20 }, { emoji: "📔", name: "Sağlam defter", price: 35 }], caption: "Eğitim amaçlı örnek fiyatlar" },
+        },
+        {
+          text: "Defteri bütün yıl her gün kullanacaksa sağlam olanı daha uzun dayanabilir. Sadece birkaç not alacaksa ince defter yeterli olabilir. Fiyat kadar fayda da önemlidir.",
+        },
+      ],
+      example: {
+        title: "Ucuz ama iki kez",
+        text: "Emir 15 TL'lik bir top aldı, top bir haftada patladı. Sonra 30 TL'lik sağlam bir top aldı, bütün yaz dayandı. Toplamda 45 TL harcadı. Baştan sağlam olanı alsaydı 30 TL harcayacaktı.",
+        visual: { kind: "emoji", items: ["⚽", "💥", "⚽", "☀️"] },
+      },
+      easierExample:
+        "Bir şeyi alırken üç soru sor: Ne kadar? Ne işime yarayacak? Ne kadar dayanır? Sadece ilk soruya bakarsak bazen iki kez para ödeyebiliriz.",
+      activities: [
+        {
+          id: "m03-l3-q1",
+          type: "truefalse",
+          topic: "deger",
+          difficulty: 2,
+          prompt: "En ucuz ürün her zaman en iyi seçimdir.",
+          answer: false,
+          hint: "Emir'in bir haftada patlayan topunu hatırla.",
+          explanation: "Ucuz ürün bazen iyi bir seçimdir, ama dayanıklılık ve ne için kullanacağımız da önemlidir.",
+        },
+        {
+          id: "m03-l3-q2",
+          type: "numeric",
+          topic: "deger",
+          difficulty: 3,
+          prompt: "Emir önce 15 TL'lik bir top aldı, top patlayınca 30 TL'lik bir top daha aldı. Toplam kaç TL harcadı?",
+          answer: 45,
+          unit: "TL",
+          hint: "İki harcamayı topla: 15 + 30 = ?",
+          explanation: "15 + 30 = 45 TL. Baştan sağlam topu alsaydı 15 TL daha az harcayacaktı.",
+        },
+        {
+          id: "m03-l3-d1",
+          type: "decision",
+          topic: "deger",
+          difficulty: 3,
+          prompt: "50 TL bütçen var. Bütün yıl her gün kullanacağın bir defter lazım: 20 TL'lik ince defter mi, 35 TL'lik sağlam defter mi?",
+          visual: { kind: "price", items: [{ emoji: "📓", name: "İnce defter", price: 20 }, { emoji: "📔", name: "Sağlam defter", price: 35 }] },
+          choices: [
+            { id: "a", text: "35 TL'lik sağlam defter; bütün yıl dayanmalı.", feedback: "Kullanım amacını düşündün! Her gün kullanılacak bir eşyada dayanıklılık önemlidir. 15 TL'n de kaldı." },
+            { id: "b", text: "20 TL'lik ince defter; kalan 30 TL'yi biriktiririm.", feedback: "Bu da düşünülmüş bir seçim. Defter yıpranırsa ikinci bir defter gerekebileceğini de hesaba kat." },
+            { id: "c", text: "İkisini birden alırım.", feedback: "20 + 35 = 55 TL, bu 50 TL'lik bütçeni aşar. Birini seçmen gerekir." },
+          ],
+          accepted: ["a", "b"],
+          hint: "İkisinin toplamı bütçeye sığıyor mu? Defteri ne kadar süre kullanacaksın?",
+          explanation: "Doğru cevap tek değil: Fiyat, fayda ve dayanıklılığı birlikte düşünerek karar vermek önemlidir.",
+        },
+      ],
+      review: [
+        "Fiyat kadar fayda ve dayanıklılık da önemlidir.",
+        "Ucuz bir ürün hızla bozulursa iki kez para ödeyebiliriz.",
+        "Bir ürünü ne için kullanacağımızı düşünmek iyi karar verdirir.",
+      ],
+    },
+  ],
+};

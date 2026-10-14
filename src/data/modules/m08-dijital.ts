@@ -1,0 +1,225 @@
+import type { Module } from "../../types";
+
+export const m08: Module = {
+  id: "m08",
+  order: 8,
+  title: "Dijital Para ve Güvenlik",
+  place: "Dijital Güvenlik Şehri",
+  description: "Nakit ve kartla ödeme, şifre gizliliği, şüpheli mesajlar ve güvenilir yetişkine danışmak.",
+  icon: "🏙️",
+  color: "#4C7CF0",
+  topic: "dijital",
+  lessons: [
+    {
+      id: "m08-l1",
+      moduleId: "m08",
+      title: "Nakit, kart ve hesap",
+      goal: "Nakit ve dijital ödeme arasındaki farkı, banka kartının bir ödeme aracı olduğunu öğreneceğim.",
+      story: [
+        {
+          text: "Dijital Güvenlik Şehri'nde bazıları alışverişi madeni para ve banknotla yapıyor. Buna nakit denir.",
+          visual: { kind: "money", values: [20, 10, 1] },
+        },
+        {
+          text: "Bazıları ise kart kullanıyor. Kartın kendisi para değildir! Kart, bankadaki hesapta duran paranın kullanılmasını sağlayan bir ödeme aracıdır.",
+          visual: { kind: "emoji", items: ["💳", "→", "🏦"], caption: "Kart, hesaptaki paraya giden bir anahtar gibidir" },
+        },
+      ],
+      example: {
+        title: "Kart sihirli değil",
+        text: "Selim'in annesi markette kartla 50 TL ödedi. Kart hiçbir zaman \"bitmeyen para\" değildir: Hesaptaki paradan 50 TL eksildi. Hesapta para yoksa kartla da alışveriş yapılamaz.",
+        visual: { kind: "emoji", items: ["💳", "🏦 -50 TL"] },
+      },
+      easierExample:
+        "Kartı bir kumbaranın anahtarı gibi düşün. Anahtar para değildir; sadece kumbaradaki paraya ulaşmanı sağlar. Kumbara boşsa anahtar işe yaramaz.",
+      activities: [
+        {
+          id: "m08-l1-q1",
+          type: "truefalse",
+          topic: "dijital",
+          difficulty: 1,
+          prompt: "Banka kartının kendisi paradır ve hiç bitmez.",
+          answer: false,
+          hint: "Kumbaranın anahtarı ve kumbaradaki parayı düşün.",
+          explanation: "Kart para değil, hesaptaki paraya ulaşmayı sağlayan bir ödeme aracıdır. Hesaptaki para biterse kart da kullanılamaz.",
+        },
+        {
+          id: "m08-l1-q2",
+          type: "match",
+          topic: "dijital",
+          difficulty: 2,
+          prompt: "Kavramları eşleştir.",
+          pairs: [
+            { left: "Nakit", right: "Madeni para ve banknot" },
+            { left: "Banka kartı", right: "Hesaptaki parayla ödeme aracı" },
+            { left: "Hesap", right: "Paranın bankada durduğu yer" },
+          ],
+          hint: "Elle tutulan para hangisi? Bankada duran para hangisi?",
+          explanation: "Nakit elle tutulan paradır; hesap, paranın bankada tutulduğu yerdir; kart ise o hesaptaki parayı kullanmaya yarar.",
+        },
+        {
+          id: "m08-l1-d1",
+          type: "decision",
+          topic: "dijital",
+          difficulty: 2,
+          prompt: "Arkadaşın \"Annemin kartı var, istediğimiz her şeyi alabiliriz!\" dedi. Ne cevap verirsin?",
+          visual: { kind: "emoji", items: ["💳", "🛍️", "🤔"] },
+          choices: [
+            { id: "a", text: "Kart, hesaptaki parayı kullanır; para sınırsız değil.", feedback: "Tam isabet! Kartla yapılan her ödeme hesaptaki paradan düşer." },
+            { id: "b", text: "Evet, kart sihirli, hiç bitmez.", feedback: "Aslında kart, hesaptaki paradan harcar. Para bitince kart da çalışmaz." },
+          ],
+          accepted: ["a"],
+          hint: "Kumbaranın anahtarı örneğini hatırla.",
+          explanation: "Kartla ödemek de para harcamaktır. Hesaptaki para sınırlıdır.",
+        },
+      ],
+      review: [
+        "Nakit: Madeni para ve banknot.",
+        "Kart, hesaptaki parayla ödeme yapmayı sağlayan bir araçtır.",
+        "Kartla harcamak da gerçek para harcamaktır.",
+      ],
+    },
+    {
+      id: "m08-l2",
+      moduleId: "m08",
+      title: "Şifreler gizlidir",
+      goal: "PIN ve şifrelerin gizli tutulması gerektiğini, kimseyle paylaşmamayı öğreneceğim.",
+      story: [
+        {
+          text: "Şehrin her evinin bir kapı anahtarı var. Kimse anahtarını yabancılara vermez, değil mi?",
+          visual: { kind: "emoji", items: ["🏠", "🔑", "🙅"] },
+        },
+        {
+          text: "Kart PIN'i ve şifreler de dijital anahtarlardır. Onları sadece sahibi bilir. Tanıdığın biri bile olsa şifre paylaşılmaz.",
+          visual: { kind: "emoji", items: ["🔐", "🤫"] },
+        },
+      ],
+      example: {
+        title: "Oyun hesabı şifresi",
+        text: "Arda'nın arkadaşı oyun hesabının şifresini istedi: \"Sana süper kostüm alırım!\" dedi. Arda şifresini vermedi ve durumu annesine anlattı. Şifre, sadece sahibinin ve güvendiği yetişkinin bilebileceği bir sırdır.",
+        visual: { kind: "emoji", items: ["🎮", "🔐", "👩"] },
+      },
+      easierExample:
+        "Şifre, diş fırçası gibidir: Kimseyle paylaşılmaz! Bir şifreni birine söylediysen hemen güvendiğin bir yetişkine haber ver ki değiştirebilsin.",
+      activities: [
+        {
+          id: "m08-l2-q1",
+          type: "mcq",
+          topic: "dijital",
+          difficulty: 1,
+          prompt: "Kart PIN'ini kimlerle paylaşmalıyız?",
+          choices: [
+            { id: "a", text: "Hiç kimseyle; kart sahibi gizli tutar" },
+            { id: "b", text: "Mesajla isteyen herkesle" },
+            { id: "c", text: "Oyunda tanıştığım arkadaşlarla" },
+          ],
+          answer: "a",
+          hint: "Ev anahtarını yabancılara verir misin?",
+          explanation: "PIN ve şifreler gizlidir. Kart sahibi bunları kimseyle paylaşmaz.",
+        },
+        {
+          id: "m08-l2-q2",
+          type: "truefalse",
+          topic: "dijital",
+          difficulty: 1,
+          prompt: "Yanlışlıkla şifremi birine söylediysem güvendiğim bir yetişkine haber vermeliyim.",
+          answer: true,
+          hint: "Şifre değiştirilebilir mi? Bunu kim yapabilir?",
+          explanation: "Doğru! Yetişkin şifreyi değiştirerek hesabı koruyabilir. Haber vermek cesaret ister ve çok doğrudur.",
+        },
+        {
+          id: "m08-l2-d1",
+          type: "decision",
+          topic: "dijital",
+          difficulty: 2,
+          prompt: "Oyunda biri yazdı: \"Şifreni söylersen sana bedava altın veririm!\" Ne yaparsın?",
+          visual: { kind: "emoji", items: ["💬", "🪙", "🔐"] },
+          choices: [
+            { id: "a", text: "Şifremi vermem ve hemen güvendiğim bir yetişkine gösteririm.", feedback: "Mükemmel! Bu, hesabını korumanın en doğru yolu." },
+            { id: "b", text: "Sadece şifremin yarısını söylerim.", feedback: "Şifrenin bir parçası bile paylaşılmamalı. Hiçbir kısmını verme ve bir yetişkine haber ver." },
+            { id: "c", text: "Bedava altın güzel, şifremi veririm.", feedback: "\"Bedava\" teklifleri sıkça şifre çalmak için kullanılır. Şifreni verme, bir yetişkine anlat." },
+          ],
+          accepted: ["a"],
+          hint: "Şifre bir anahtar gibidir. Bedava hediye için anahtarını verir misin?",
+          explanation: "Şifre isteyen tekliflere asla şifre verilmez. Güvenilir bir yetişkine haber vermek en doğru adımdır.",
+        },
+      ],
+      review: [
+        "PIN ve şifreler gizli anahtarlardır.",
+        "Hediye ya da ödül vaadi olsa da şifre paylaşılmaz.",
+        "Bir sorun olursa hemen güvendiğin bir yetişkine söyle.",
+      ],
+    },
+    {
+      id: "m08-l3",
+      moduleId: "m08",
+      title: "İnternet alışverişi ve şüpheli mesajlar",
+      goal: "İnternet alışverişinin temel mantığını ve şüpheli link ya da para taleplerini fark etmeyi öğreneceğim.",
+      story: [
+        {
+          text: "İnternetten alışverişte ürün ekranda seçilir, ödeme yapılır ve ürün eve gelir. Bu alışverişleri her zaman yetişkinler yapar.",
+          visual: { kind: "emoji", items: ["📱", "🛒", "📦", "🏠"] },
+        },
+        {
+          text: "Bazen \"Tebrikler, telefon kazandın! Hemen tıkla ve kart bilgilerini gir!\" gibi mesajlar gelir. Bunlar şüphelidir. Gerçek ödüller kart bilgisi istemez.",
+          visual: { kind: "emoji", items: ["📩", "🎁", "⚠️"] },
+        },
+      ],
+      example: {
+        title: "Şüpheli mesajın işaretleri",
+        text: "1) Tanımadığın biri yazmış. 2) \"Hemen, acele et!\" diyor. 3) Ödül karşılığında para, şifre ya da kart bilgisi istiyor. 4) Garip bir link var. Bu işaretleri görünce linke tıklamayız ve bir yetişkine gösteririz.",
+        visual: { kind: "emoji", items: ["❓", "⏰", "💳", "🔗"] },
+      },
+      easierExample:
+        "Gerçek hayatta tanımadığın biri \"Bana para ver, sana bisiklet vereyim\" dese inanır mısın? İnternette de aynı kural geçerli. Emin değilsen dokunma, sor!",
+      activities: [
+        {
+          id: "m08-l3-q1",
+          type: "mcq",
+          topic: "dijital",
+          difficulty: 2,
+          prompt: "Hangisi şüpheli bir mesajın işaretidir?",
+          choices: [
+            { id: "a", text: "Ödül için kart bilgisi ya da para istemesi" },
+            { id: "b", text: "Öğretmeninin ödev hatırlatması" },
+            { id: "c", text: "Ailenin akşam yemeği mesajı" },
+          ],
+          answer: "a",
+          hint: "Gerçek bir ödül senden para ister mi?",
+          explanation: "Ödül vaat edip para, şifre ya da kart bilgisi isteyen mesajlar şüphelidir.",
+        },
+        {
+          id: "m08-l3-q2",
+          type: "truefalse",
+          topic: "dijital",
+          difficulty: 1,
+          prompt: "Tanımadığım birinden gelen mesajdaki linke hemen tıklamalıyım.",
+          answer: false,
+          hint: "Emin değilsen ne yapıyorduk? Dokunma, ...",
+          explanation: "Tanımadığın linklere tıklamayız. Önce güvendiğimiz bir yetişkine gösteririz.",
+        },
+        {
+          id: "m08-l3-d1",
+          type: "decision",
+          topic: "dijital",
+          difficulty: 2,
+          prompt: "Tabletine bir mesaj geldi: \"Yarışmayı kazandın! Ödülünü almak için 20 TL gönder.\" Ne yaparsın?",
+          visual: { kind: "emoji", items: ["📩", "🏆", "💸"] },
+          choices: [
+            { id: "a", text: "Hiçbir şey göndermem, mesajı bir yetişkine gösteririm.", feedback: "Süper dedektif! Gerçek ödüller para istemez." },
+            { id: "b", text: "20 TL gönderirim, ödül daha değerli.", feedback: "Bu bir tuzak olabilir. Ödül için para isteyen mesajlara güvenilmez." },
+            { id: "c", text: "Linke tıklayıp ne olduğuna bakarım.", feedback: "Merak etmek normal ama şüpheli linkler zararlı olabilir. Önce bir yetişkine göster." },
+          ],
+          accepted: ["a"],
+          hint: "Hiç katılmadığın bir yarışmayı kazanabilir misin? Ödül neden para istesin?",
+          explanation: "Ödül karşılığında para isteyen mesajlar dolandırıcılık olabilir. Para göndermez, bir yetişkine danışırız.",
+        },
+      ],
+      review: [
+        "İnternet alışverişini yetişkinler yapar.",
+        "Ödül karşılığında para, şifre ya da kart bilgisi isteyen mesajlar şüphelidir.",
+        "Emin değilsen dokunma, güvendiğin bir yetişkine sor.",
+      ],
+    },
+  ],
+};

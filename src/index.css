@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* Yazı tipleri yerel olarak paketlenir: çevrimdışı çalışır (SIL Open Font License) */
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url("./assets/fonts/fredoka-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url("./assets/fonts/fredoka-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 1000;
+  src: url("./assets/fonts/nunito-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 1000;
+  src: url("./assets/fonts/nunito-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@theme {
+  --font-sans: "Nunito", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif;
+
+  /* Renklerin işlevsel anlamları:
+     navy = metin/ana eylem, turq = öğrenme/ilerleme, sun = XP ve ödül,
+     coral = dikkat/hedef, cream = zemin, sky = bilgi alanları, success = doğru/başarı */
+  --color-navy: #192744;
+  --color-navy-soft: #2c3d63;
+  --color-turq: #35c9b1;
+  --color-turq-dark: #1f9e8a;
+  --color-sun: #ffd166;
+  --color-sun-dark: #e8a92a;
+  --color-coral: #ff7a70;
+  --color-coral-dark: #e0544a;
+  --color-cream: #fff9f0;
+  --color-sky: #eaf2ff;
+  --color-success: #58c78a;
+  --color-success-dark: #2f9e62;
+  --color-ink-muted: #5b6785;
+
+  --shadow-soft: 0 6px 20px -8px rgb(25 39 68 / 0.18), 0 2px 6px -2px rgb(25 39 68 / 0.08);
+  --shadow-lift: 0 14px 34px -12px rgb(25 39 68 / 0.28);
+  --shadow-press: 0 4px 0 0 rgb(25 39 68 / 0.18);
+
+  --radius-card: 1.5rem;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-cream font-sans text-navy antialiased;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+  }
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-turq);
+    outline-offset: 3px;
+    border-radius: 12px;
+  }
+  input,
+  select {
+    font: inherit;
+  }
+}
+
+@utility card {
+  @apply rounded-[var(--radius-card)] bg-white shadow-[var(--shadow-soft)];
+}
+@utility btn {
+  @apply inline-flex min-h-12 select-none items-center justify-center gap-2 rounded-2xl px-5 py-3 font-display text-lg font-semibold transition-transform duration-100 active:translate-y-0.5 disabled:opacity-50 disabled:active:translate-y-0;
+}
+@utility btn-primary {
+  @apply btn bg-turq text-navy shadow-[0_4px_0_0_var(--color-turq-dark)] active:shadow-[0_2px_0_0_var(--color-turq-dark)];
+}
+@utility btn-dark {
+  @apply btn bg-navy text-white shadow-[0_4px_0_0_#0c1428] active:shadow-[0_2px_0_0_#0c1428];
+}
+@utility btn-sun {
+  @apply btn bg-sun text-navy shadow-[0_4px_0_0_var(--color-sun-dark)] active:shadow-[0_2px_0_0_var(--color-sun-dark)];
+}
+@utility btn-coral {
+  @apply btn bg-coral text-white shadow-[0_4px_0_0_var(--color-coral-dark)] active:shadow-[0_2px_0_0_var(--color-coral-dark)];
+}
+@utility btn-ghost {
+  @apply btn bg-white text-navy ring-2 ring-navy/10 shadow-[0_3px_0_0_rgb(25_39_68/0.1)];
+}
+@utility chip {
+  @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-bold;
+}
+@utility pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+@utility pt-safe {
+  padding-top: max(env(safe-area-inset-top), 0px);
+}
+@utility bg-dots {
+  background-image: radial-gradient(rgb(25 39 68 / 0.06) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+html[data-motion="kapali"] *,
+html[data-motion="kapali"] *::before,
+html[data-motion="kapali"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}

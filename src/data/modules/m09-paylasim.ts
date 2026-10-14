@@ -1,0 +1,226 @@
+import type { Module } from "../../types";
+
+export const m09: Module = {
+  id: "m09",
+  order: 9,
+  title: "Paylaşım, Sorumluluk ve Toplum",
+  place: "Paylaşım Bahçesi",
+  description: "Paylaşmanın farklı yolları, israfı azaltmak, tamir etmek ve kamusal hizmetler.",
+  icon: "🌻",
+  color: "#F2B84B",
+  topic: "paylasim",
+  lessons: [
+    {
+      id: "m09-l1",
+      moduleId: "m09",
+      title: "Paylaşmanın birçok yolu",
+      goal: "Paylaşmanın para dışında zaman, emek ve eşyayla da olabileceğini öğreneceğim.",
+      story: [
+        {
+          text: "Paylaşım Bahçesi'nde herkes bir şeyler paylaşıyor: Biri fidan dikmeye yardım ediyor, biri kitaplarını kütüphaneye bağışlıyor, biri arkadaşına matematik anlatıyor.",
+          visual: { kind: "emoji", items: ["🌱", "📚", "🤝"] },
+        },
+        {
+          text: "Bağış, karşılık beklemeden yardım için bir şey vermektir. Para, eşya, zaman ya da emekle paylaşabiliriz. Paylaşıp paylaşmamaya ve nasıl paylaşacağına ailenle birlikte karar verirsin.",
+        },
+      ],
+      example: {
+        title: "Kumbi'nin üç kavanozu",
+        text: "Bazı çocuklar paralarını üç kavanoza ayırır: Harcama, birikim ve paylaşım. Bu bir zorunluluk değil, bir fikir. Paylaşım kavanozu boş olsa bile zamanınla ya da emeğinle paylaşabilirsin.",
+        visual: { kind: "emoji", items: ["🫙 Harca", "🫙 Biriktir", "🫙 Paylaş"] },
+      },
+      easierExample:
+        "Paylaşmak sadece para vermek değildir. Arkadaşına kalemini ödünç vermek, kardeşine kitap okumak ya da sofrayı birlikte toplamak da paylaşmaktır.",
+      activities: [
+        {
+          id: "m09-l1-q1",
+          type: "mcq",
+          topic: "paylasim",
+          difficulty: 1,
+          prompt: "Hangisi para kullanmadan paylaşmaya bir örnektir?",
+          choices: [
+            { id: "a", text: "Okuduğum kitapları sınıf kitaplığına vermek", emoji: "📚" },
+            { id: "b", text: "Kendime yeni bir oyuncak almak", emoji: "🧸" },
+            { id: "c", text: "Bütün paramı biriktirmek", emoji: "🫙" },
+          ],
+          answer: "a",
+          hint: "Hangisinde başka biri de faydalanıyor?",
+          explanation: "Kitapları paylaşmak, para harcamadan başkalarının da faydalanmasını sağlar.",
+        },
+        {
+          id: "m09-l1-q2",
+          type: "truefalse",
+          topic: "paylasim",
+          difficulty: 1,
+          prompt: "Paylaşmak sadece para vererek yapılabilir.",
+          answer: false,
+          hint: "Bahçede fidan diken ya da ders anlatan kişiler ne paylaşıyordu?",
+          explanation: "Zaman, emek ve eşya da paylaşılabilir.",
+        },
+        {
+          id: "m09-l1-d1",
+          type: "decision",
+          topic: "paylasim",
+          difficulty: 2,
+          prompt: "Sınıfta bir arkadaşının kalemi kalmamış ve resim dersi başlıyor. Ne yapabilirsin?",
+          visual: { kind: "emoji", items: ["✏️", "🙋", "🎨"] },
+          choices: [
+            { id: "a", text: "Yedek kalemimi ders bitene kadar ödünç veririm.", feedback: "Güzel bir paylaşım! Kalemin sende kalır, arkadaşın da derse katılır." },
+            { id: "b", text: "Öğretmene söyleyip sınıf kutusundan kalem bulmasına yardım ederim.", feedback: "Bu da harika bir yardım! Çözüm bulmak da paylaşmaktır." },
+            { id: "c", text: "Benim sorunum değil, bir şey yapmam.", feedback: "Bu senin seçimin; ama küçük bir yardım arkadaşının gününü güzelleştirebilir." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Elinde fazladan bir şey var mı? Ya da kim yardım edebilir?",
+          explanation: "Yardım etmenin farklı yolları vardır: ödünç vermek, çözüm bulmak, zaman ayırmak.",
+        },
+      ],
+      review: [
+        "Bağış, karşılık beklemeden yardım için vermektir.",
+        "Para, eşya, zaman ve emekle paylaşabiliriz.",
+        "Nasıl paylaşacağına ailenle birlikte karar verirsin.",
+      ],
+    },
+    {
+      id: "m09-l2",
+      moduleId: "m09",
+      title: "İsraf etme, tamir et, yeniden kullan",
+      goal: "Kaynakları verimli kullanmayı, israfı azaltmayı, tamir ve yeniden kullanmayı öğreneceğim.",
+      story: [
+        {
+          text: "Bahçenin musluğu damlıyor: tık, tık, tık. Bir günde kovalarca su boşa gidiyor! Kaynakları boşa harcamaya israf denir.",
+          visual: { kind: "emoji", items: ["🚰", "💧", "💧", "🪣"] },
+        },
+        {
+          text: "Musluğu tamir ettirmek, ışıkları kapatmak, kavanozları kalemlik yapmak... Hepsi hem doğayı hem bütçeyi korur.",
+          visual: { kind: "emoji", items: ["🔧", "💡", "🫙✏️"] },
+        },
+      ],
+      example: {
+        title: "Tamir mi, yenisi mi?",
+        text: "Defne'nin sırt çantasının askısı koptu. Yenisi 200 TL, terzide dikilmesi 30 TL. Dikilmesini seçti ve 170 TL fark oluştu. Hem atık oluşmadı hem bütçe korundu. (Örnek tutarlar)",
+        visual: { kind: "price", items: [{ emoji: "🎒", name: "Yeni çanta", price: 200 }, { emoji: "🧵", name: "Tamir", price: 30 }] },
+      },
+      easierExample:
+        "Bir şeyi atmadan önce \"Bunu tamir edebilir miyim ya da başka bir işte kullanabilir miyim?\" diye sor. Bu soruya \"evet\" dersen hem para hem doğa kazanır.",
+      activities: [
+        {
+          id: "m09-l2-q1",
+          type: "numeric",
+          topic: "paylasim",
+          difficulty: 2,
+          prompt: "Yeni çanta 200 TL, tamir 30 TL. Tamiri seçersen kaç TL daha az harcarsın?",
+          answer: 170,
+          unit: "TL",
+          hint: "200 - 30 = ? Önce 200 - 20 = 180, sonra 180 - 10.",
+          explanation: "200 - 30 = 170 TL daha az harcarsın.",
+        },
+        {
+          id: "m09-l2-q2",
+          type: "mcq",
+          topic: "paylasim",
+          difficulty: 1,
+          prompt: "Hangisi israfı azaltır?",
+          choices: [
+            { id: "a", text: "Odadan çıkarken ışığı kapatmak", emoji: "💡" },
+            { id: "b", text: "Musluğu açık bırakmak", emoji: "🚰" },
+            { id: "c", text: "Yemeğin yarısını çöpe atmak", emoji: "🗑️" },
+          ],
+          answer: "a",
+          hint: "Hangisinde bir kaynak boşa gitmiyor?",
+          explanation: "Gereksiz yanan ışığı kapatmak enerjiyi korur ve israfı azaltır.",
+        },
+        {
+          id: "m09-l2-d1",
+          type: "decision",
+          topic: "paylasim",
+          difficulty: 2,
+          prompt: "Boya kalemlerinin bazıları kırıldı ama hâlâ boyuyor. Ne yaparsın?",
+          visual: { kind: "emoji", items: ["🖍️", "💔", "🖍️"] },
+          choices: [
+            { id: "a", text: "Kırık parçaları kullanmaya devam ederim.", feedback: "Harika! Kırık kalem de boyar; israfı önledin." },
+            { id: "b", text: "Kırık parçaları bir kutuda toplayıp karışık renk boya yapmak için kullanırım.", feedback: "Yaratıcı bir yeniden kullanım fikri!" },
+            { id: "c", text: "Hepsini atar, yeni set isterim.", feedback: "Hâlâ çalışan kalemleri atmak israf olur. Önce onları kullanmayı dene." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Kalemler hâlâ boyuyor mu?",
+          explanation: "Hâlâ işe yarayan eşyaları kullanmak ya da yeni bir amaçla değerlendirmek israfı azaltır.",
+        },
+      ],
+      review: [
+        "İsraf, kaynakları boşa harcamaktır.",
+        "Tamir ve yeniden kullanım hem bütçeyi hem doğayı korur.",
+        "Atmadan önce \"Tamir edebilir miyim?\" diye sor.",
+      ],
+    },
+    {
+      id: "m09-l3",
+      moduleId: "m09",
+      title: "Hepimizin hizmetleri",
+      goal: "Okul, park ve yol gibi kamusal hizmetlerin ve vergilerin toplumdaki basit rolünü anlayacağım.",
+      story: [
+        {
+          text: "Paylaşım Bahçesi'nin yanında bir park, bir okul, bir kütüphane ve aydınlatılmış yollar var. Bunları herkes kullanabiliyor.",
+          visual: { kind: "emoji", items: ["🏞️", "🏫", "📚", "🛣️", "🚒"] },
+        },
+        {
+          text: "Herkesin kullandığı bu hizmetlere kamusal hizmet denir. Yetişkinlerin kazandıklarından ve yaptıkları alışverişlerden ödedikleri vergiler, bu hizmetlerin yapılmasına katkı sağlar.",
+        },
+      ],
+      example: {
+        title: "Ortak bir kumbara gibi",
+        text: "Bir apartmanda herkes aidat verir ve bu parayla merdivenler temizlenir, bahçe düzenlenir. Vergiler de bunun çok büyük bir hâli gibidir: Toplanan paralarla okul, hastane ve yol gibi ortak ihtiyaçlar karşılanır.",
+        visual: { kind: "emoji", items: ["🏢", "🫙", "🧹", "🌷"] },
+      },
+      easierExample:
+        "Okulundaki sıraları, parktaki salıncakları sen tek başına satın almadın. Birçok insanın katkısıyla yapıldılar. Bu yüzden onları korumak hepimizin sorumluluğudur.",
+      activities: [
+        {
+          id: "m09-l3-q1",
+          type: "mcq",
+          topic: "paylasim",
+          difficulty: 1,
+          prompt: "Hangisi bir kamusal hizmettir?",
+          choices: [
+            { id: "a", text: "Herkesin kullanabildiği park", emoji: "🏞️" },
+            { id: "b", text: "Benim oyuncak arabam", emoji: "🚗" },
+            { id: "c", text: "Arkadaşımın bisikleti", emoji: "🚲" },
+          ],
+          answer: "a",
+          hint: "Hangisini herkes kullanabilir?",
+          explanation: "Park, herkesin kullanabildiği ortak bir alandır; kamusal hizmettir.",
+        },
+        {
+          id: "m09-l3-q2",
+          type: "truefalse",
+          topic: "paylasim",
+          difficulty: 2,
+          prompt: "Vergiler, okul ve yol gibi ortak hizmetlerin yapılmasına katkı sağlar.",
+          answer: true,
+          hint: "Apartmandaki ortak kumbara örneğini hatırla.",
+          explanation: "Doğru. Vergiler, toplumun ortak ihtiyaçlarını karşılamak için kullanılır.",
+        },
+        {
+          id: "m09-l3-d1",
+          type: "decision",
+          topic: "paylasim",
+          difficulty: 1,
+          prompt: "Parkta bir salıncağın zinciri gevşemiş ve tehlikeli görünüyor. Ne yaparsın?",
+          visual: { kind: "emoji", items: ["🛝", "⚠️"] },
+          choices: [
+            { id: "a", text: "Salıncağa binmem ve bir yetişkine haber veririm, o da ilgili yere bildirir.", feedback: "Hem kendini korudun hem ortak alanı! Çok sorumlu bir davranış." },
+            { id: "b", text: "Arkadaşlarıma da söylerim ki binmesinler.", feedback: "Arkadaşlarını korumak güzel! Bir yetişkine de haber verirsen tamir edilebilir." },
+            { id: "c", text: "Zinciri kendim tamir etmeye çalışırım.", feedback: "Tamir işi yetişkinlere ait; sen yaralanabilirsin. En iyisi bir yetişkine söylemek." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Ortak alanları korumak için kimden yardım isteriz?",
+          explanation: "Ortak alanlardaki sorunları güvendiğimiz yetişkinlere bildirmek, herkesin güvenliğini sağlar.",
+        },
+      ],
+      review: [
+        "Kamusal hizmetler herkesin kullandığı hizmetlerdir.",
+        "Vergiler ortak ihtiyaçların karşılanmasına katkı sağlar.",
+        "Ortak alanları korumak hepimizin sorumluluğudur.",
+      ],
+    },
+  ],
+};

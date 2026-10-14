@@ -1,0 +1,225 @@
+import type { Module } from "../../types";
+
+export const m07: Module = {
+  id: "m07",
+  order: 7,
+  title: "Akıllı Alışveriş",
+  place: "Akıllı Alışveriş Pazarı",
+  description: "Liste yap, karşılaştır, reklam ve indirimleri dikkatle değerlendir, fırsat maliyetini gör.",
+  icon: "🛒",
+  color: "#FF9F5A",
+  topic: "alisveris",
+  lessons: [
+    {
+      id: "m07-l1",
+      moduleId: "m07",
+      title: "Alışveriş listesi ve karşılaştırma",
+      goal: "Alışverişe listeyle gitmeyi ve alternatif ürünleri karşılaştırmayı öğreneceğim.",
+      story: [
+        {
+          text: "Kumbi pazara listesiyle geldi: süt, ekmek, elma. Pazarda o kadar çok renkli şey var ki listesi olmasa hepsini isteyebilirdi!",
+          visual: { kind: "emoji", items: ["📝", "🥛", "🍞", "🍎"] },
+        },
+        {
+          text: "Liste, ihtiyaçlara odaklanmamızı sağlar. Aynı ürün için farklı seçenekleri karşılaştırmak da para kazandırır.",
+        },
+      ],
+      example: {
+        title: "Hangi suluboya?",
+        text: "Suluboya A: 12 renk, 30 TL. Suluboya B: 12 renk, 22 TL, ama fırçası yok. Evde zaten fırçan varsa B daha uygun olabilir. Fırçan yoksa A'yı düşünebilirsin.",
+        visual: { kind: "price", items: [{ emoji: "🎨", name: "Suluboya A + fırça", price: 30 }, { emoji: "🎨", name: "Suluboya B", price: 22 }] },
+      },
+      easierExample:
+        "Alışveriş listesi, markette kaybolmamak için bir pusuladır. Listede olmayan bir şey gözüne çarparsa \"Bu listemde var mı?\" diye sor.",
+      activities: [
+        {
+          id: "m07-l1-q1",
+          type: "mcq",
+          topic: "alisveris",
+          difficulty: 1,
+          prompt: "Alışveriş listesi yapmanın en büyük faydası nedir?",
+          choices: [
+            { id: "a", text: "İhtiyaçlarımıza odaklanıp gereksiz harcamayı azaltır" },
+            { id: "b", text: "Daha çok şey almamızı sağlar" },
+            { id: "c", text: "Fiyatları değiştirir" },
+          ],
+          answer: "a",
+          hint: "Kumbi listesi olmasaydı pazarda ne olurdu?",
+          explanation: "Liste, neye ihtiyacımız olduğunu hatırlatır ve plansız harcamaları azaltır.",
+        },
+        {
+          id: "m07-l1-q2",
+          type: "numeric",
+          topic: "alisveris",
+          difficulty: 2,
+          prompt: "Suluboya A 30 TL, Suluboya B 22 TL. B'yi seçersen kaç TL tasarruf edersin?",
+          answer: 8,
+          unit: "TL",
+          hint: "İki fiyatın farkını bul: 30 - 22.",
+          explanation: "30 - 22 = 8 TL tasarruf edersin.",
+        },
+        {
+          id: "m07-l1-d1",
+          type: "decision",
+          topic: "alisveris",
+          difficulty: 2,
+          prompt: "Listende sadece \"defter\" yazıyor. Kasada parlak anahtarlıklar gördün. Ne yaparsın?",
+          visual: { kind: "emoji", items: ["📝 defter", "🔑✨"] },
+          choices: [
+            { id: "a", text: "Listeme sadık kalır, anahtarlığı bekleme listeme yazarım.", feedback: "Harika! Ani isteği fark edip sonraya bıraktın." },
+            { id: "b", text: "Defteri alırım; param artarsa ve gerçekten istiyorsam anahtarlığı düşünürüm.", feedback: "Önce ihtiyaç, sonra istek. Çok iyi bir sıralama!" },
+            { id: "c", text: "Defter yerine anahtarlığı alırım.", feedback: "Okul için gereken defter alınmadan kalır. İhtiyacı öne almayı dene." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Kasaya neden geldin? Listende ne yazıyordu?",
+          explanation: "Kasalardaki ürünler genelde ani istek uyandırmak için oraya konur. Listeye sadık kalmak akıllıcadır.",
+        },
+      ],
+      review: [
+        "Alışverişe listeyle gitmek ihtiyaçlara odaklanmayı sağlar.",
+        "Aynı ürünün farklı seçeneklerini karşılaştırırız.",
+        "Elimizde olanları da hesaba katarız.",
+      ],
+    },
+    {
+      id: "m07-l2",
+      moduleId: "m07",
+      title: "Reklamlar ve indirim etiketleri",
+      goal: "Reklamların amacını anlayacak ve indirim etiketlerini dikkatle değerlendireceğim.",
+      story: [
+        {
+          text: "Pazarın duvarlarında kocaman afişler var: \"Bu oyuncakla herkes seni sevecek!\" Kumbi düşündü: \"Gerçekten mi?\"",
+          visual: { kind: "emoji", items: ["📢", "🧸", "🤔"] },
+        },
+        {
+          text: "Reklamın amacı bir ürünü bize sattırmaktır. Bu yüzden ürünü olduğundan daha harika gösterebilir. İndirim etiketleri de dikkatle okunmalıdır.",
+        },
+      ],
+      example: {
+        title: "\"%50 indirim!\" ama...",
+        text: "Bir tişörtün fiyatı 80 TL'den 40 TL'ye inmiş. Bu iyi bir fırsat gibi görünüyor. Ama tişörte ihtiyacın yoksa 40 TL harcamış olursun, 40 TL kazanmış olmazsın!",
+        visual: { kind: "price", items: [{ emoji: "👕", name: "Eski fiyat", price: 80 }, { emoji: "🏷️", name: "İndirimli", price: 40 }] },
+      },
+      easierExample:
+        "Reklam, ürünün kendini en güzel kıyafetleriyle tanıtmasıdır. İndirimde de şunu sor: \"İndirim olmasaydı da bunu almak ister miydim?\"",
+      activities: [
+        {
+          id: "m07-l2-q1",
+          type: "truefalse",
+          topic: "alisveris",
+          difficulty: 1,
+          prompt: "Reklamların amacı, ürünü bize satın aldırmaktır.",
+          answer: true,
+          hint: "Afişler neden pazarın en görünür yerlerinde?",
+          explanation: "Reklamlar ürünleri tanıtır ve satın almamızı ister. Bu yüzden onları düşünerek değerlendiririz.",
+        },
+        {
+          id: "m07-l2-q2",
+          type: "mcq",
+          topic: "alisveris",
+          difficulty: 2,
+          prompt: "İhtiyacın olmayan bir ürün 80 TL'den 40 TL'ye indi. Onu alırsan ne olur?",
+          choices: [
+            { id: "a", text: "40 TL harcamış olurum" },
+            { id: "b", text: "40 TL kazanmış olurum" },
+            { id: "c", text: "Hiç para harcamamış olurum" },
+          ],
+          answer: "a",
+          hint: "Cüzdanından para çıkıyor mu, giriyor mu?",
+          explanation: "İndirimde bile ürün alınca cüzdandan para çıkar. İhtiyaç yoksa bu bir tasarruf değil, bir harcamadır.",
+        },
+        {
+          id: "m07-l2-d1",
+          type: "decision",
+          topic: "alisveris",
+          difficulty: 2,
+          prompt: "Bir video sırasında reklam çıktı: \"Bu süper ayakkabılarla en hızlı koşan sen olursun!\" Ne düşünürsün?",
+          visual: { kind: "emoji", items: ["📺", "👟", "⚡"] },
+          choices: [
+            { id: "a", text: "Reklam ürünü abartıyor olabilir; ihtiyacım var mı diye düşünürüm.", feedback: "Eleştirel düşündün! Reklamlar çoğu zaman ürünü olduğundan daha etkili gösterir." },
+            { id: "b", text: "Hemen ailemden almalarını isterim.", feedback: "İstek duymak normal. Ama önce ayakkabılarının gerçekten değişmesi gerekiyor mu, düşün." },
+            { id: "c", text: "Farklı ayakkabıları ve fiyatları ailemle karşılaştırırım.", feedback: "Akıllıca! Karşılaştırmak, reklamın etkisinden çıkıp karar vermeni sağlar." },
+          ],
+          accepted: ["a", "c"],
+          hint: "Ayakkabı gerçekten seni en hızlı yapabilir mi?",
+          explanation: "Reklamları dikkatle değerlendirir, ihtiyaç ve alternatifleri düşünerek karar veririz.",
+        },
+      ],
+      review: [
+        "Reklamlar ürünleri satmak için tasarlanır.",
+        "İndirimli ürünü almak yine bir harcamadır.",
+        "\"İndirim olmasaydı da alır mıydım?\" diye sor.",
+      ],
+    },
+    {
+      id: "m07-l3",
+      moduleId: "m07",
+      title: "Seçim ve fırsat maliyeti",
+      goal: "Bir şeyi seçtiğimde vazgeçtiğim seçeneği (fırsat maliyetini) fark edeceğim.",
+      story: [
+        {
+          text: "Kumbi'nin 40 TL'si var. 25 TL'lik bir kitap ya da 40 TL'lik bir oyuncak alabilir. İkisini birden alamaz.",
+          visual: { kind: "price", items: [{ emoji: "📗", name: "Kitap", price: 25 }, { emoji: "🤖", name: "Oyuncak", price: 40 }] },
+        },
+        {
+          text: "Oyuncağı seçerse kitaptan şimdilik vazgeçer. Kitabı seçerse 15 TL'si kalır ama oyuncaktan vazgeçer. Vazgeçtiğimiz en iyi seçeneğe fırsat maliyeti denir.",
+        },
+      ],
+      example: {
+        title: "Her seçimin bir bedeli var",
+        text: "Cumartesi Ela'nın önünde iki seçenek var: parka gitmek ya da sinemaya gitmek. Sinemayı seçerse o gün parkı kaçırır. Para kararları da böyledir; birini seçince diğerinden vazgeçeriz. Hangisinin doğru olduğu kişiye göre değişir.",
+        visual: { kind: "emoji", items: ["🛝", "↔️", "🎬"] },
+      },
+      easierExample:
+        "Elinde tek bir dilim pasta var: Ya çikolatalı ya meyveli. Çikolatalıyı seçince meyveliyi o gün yiyemezsin. Meyveli pasta, çikolatalıyı seçmenin fırsat maliyetidir.",
+      activities: [
+        {
+          id: "m07-l3-q1",
+          type: "mcq",
+          topic: "alisveris",
+          difficulty: 2,
+          prompt: "40 TL'n var ve 40 TL'lik oyuncağı aldın. Fırsat maliyetin nedir?",
+          choices: [
+            { id: "a", text: "Şimdilik alamadığın 25 TL'lik kitap" },
+            { id: "b", text: "Aldığın oyuncak" },
+            { id: "c", text: "Hiçbir şey" },
+          ],
+          answer: "a",
+          hint: "Fırsat maliyeti seçtiğin şey değil, vazgeçtiğin şeydir.",
+          explanation: "Oyuncağı seçince kitaptan vazgeçtin. Kitap, bu seçimin fırsat maliyetidir.",
+        },
+        {
+          id: "m07-l3-q2",
+          type: "truefalse",
+          topic: "alisveris",
+          difficulty: 2,
+          prompt: "Kitabı seçmek doğru, oyuncağı seçmek her zaman yanlıştır.",
+          answer: false,
+          hint: "Ela'nın park ve sinema seçimini hatırla. Doğru seçim herkes için aynı mı?",
+          explanation: "Doğru seçim kişiye ve duruma göre değişir. Önemli olan neyden vazgeçtiğini bilerek seçmektir.",
+        },
+        {
+          id: "m07-l3-d1",
+          type: "decision",
+          topic: "alisveris",
+          difficulty: 3,
+          prompt: "40 TL'n var. 25 TL'lik kitap mı, 40 TL'lik oyuncak mı? Seçimini yap ve neden seçtiğini düşün.",
+          visual: { kind: "price", items: [{ emoji: "📗", name: "Kitap", price: 25 }, { emoji: "🤖", name: "Oyuncak", price: 40 }] },
+          choices: [
+            { id: "a", text: "Kitap: 15 TL'm kalır, onu biriktiririm. Oyuncaktan şimdilik vazgeçerim.", feedback: "Düşünülmüş bir seçim! Vazgeçtiğin oyuncağı ve kalan paranı biliyorsun." },
+            { id: "b", text: "Oyuncak: Uzun süredir istiyordum. Kitaptan şimdilik vazgeçerim.", feedback: "Bu da düşünülmüş bir seçim! Neyden vazgeçtiğini bilerek karar verdin." },
+            { id: "c", text: "İkisini birden alırım.", feedback: "25 + 40 = 65 TL eder. 40 TL ile ikisini birden alamazsın; birini seçmek gerekir." },
+          ],
+          accepted: ["a", "b"],
+          hint: "İkisinin toplamı 40 TL'ye sığıyor mu?",
+          explanation: "Burada iki geçerli seçim var. Akıllı karar, fırsat maliyetini bilerek verilen karardır.",
+        },
+      ],
+      review: [
+        "Bir şeyi seçince başka bir şeyden vazgeçeriz.",
+        "Vazgeçtiğimiz en iyi seçenek fırsat maliyetidir.",
+        "Doğru seçim kişiye göre değişir; önemli olan bilerek seçmektir.",
+      ],
+    },
+  ],
+};

@@ -1,0 +1,230 @@
+import type { Module } from "../../types";
+
+export const m06: Module = {
+  id: "m06",
+  order: 6,
+  title: "Para Nasıl Kazanılır?",
+  place: "Kazanç Atölyesi",
+  description: "Emek, meslekler, ürün ve hizmet; küçük bir işletmede gelir ve kâr.",
+  icon: "🛠️",
+  color: "#B58CFF",
+  topic: "kazanc",
+  lessons: [
+    {
+      id: "m06-l1",
+      moduleId: "m06",
+      title: "Emek ve meslekler",
+      goal: "İnsanların farklı mesleklerde çalışarak emekleriyle para kazandığını öğreneceğim.",
+      story: [
+        {
+          text: "Kazanç Atölyesi'nde herkes çalışıyor: Fırıncı ekmek yapıyor, öğretmen ders anlatıyor, tamirci bisiklet onarıyor.",
+          visual: { kind: "emoji", items: ["🧑‍🍳", "🧑‍🏫", "🧑‍🔧", "🧑‍⚕️"] },
+        },
+        {
+          text: "Bir işi yapmak için harcanan zaman, beceri ve çabaya emek denir. İnsanlar emekleri karşılığında para kazanır ve bu parayla ihtiyaçlarını karşılar.",
+        },
+      ],
+      example: {
+        title: "Bir ekmeğin yolculuğu",
+        text: "Çiftçi buğday yetiştirir, değirmenci un yapar, fırıncı ekmek pişirir, şoför ekmeği markete taşır. Bir ekmekte birçok kişinin emeği vardır.",
+        visual: { kind: "emoji", items: ["🌾", "→", "⚙️", "→", "🍞", "→", "🚚"] },
+      },
+      easierExample:
+        "Emek, bir işe verdiğin enerjidir. Odanı toplamak için de emek harcarsın. Yetişkinler de bir işe emek verir ve bunun karşılığında maaş ya da ücret alır.",
+      activities: [
+        {
+          id: "m06-l1-q1",
+          type: "match",
+          topic: "kazanc",
+          difficulty: 1,
+          prompt: "Her mesleği yaptığı işle eşleştir.",
+          pairs: [
+            { left: "Fırıncı", right: "Ekmek pişirir" },
+            { left: "Diş hekimi", right: "Dişlerimizi tedavi eder" },
+            { left: "Tamirci", right: "Bozulan eşyaları onarır" },
+            { left: "Çiftçi", right: "Ürün yetiştirir" },
+          ],
+          hint: "Her mesleğin adı ne yaptığına dair ipucu verir.",
+          explanation: "Her meslek topluma farklı bir şekilde katkı sağlar ve emek gerektirir.",
+        },
+        {
+          id: "m06-l1-q2",
+          type: "truefalse",
+          topic: "kazanc",
+          difficulty: 1,
+          prompt: "Bir iş yapmak zaman, beceri ve çaba gerektirir. Buna emek denir.",
+          answer: true,
+          hint: "Fırıncı ekmek yaparken neler harcıyor?",
+          explanation: "Doğru! Emek; zamanı, beceriyi ve çabayı birlikte anlatır.",
+        },
+        {
+          id: "m06-l1-d1",
+          type: "decision",
+          topic: "kazanc",
+          difficulty: 2,
+          prompt: "Evde sofrayı kurmaya yardım ettin. Bunun karşılığında para verilmesi gerekir mi?",
+          visual: { kind: "emoji", items: ["🍽️", "🏠", "❤️"] },
+          choices: [
+            { id: "a", text: "Hayır, ailece birbirimize yardım ederiz. Her yardım ücretli değildir.", feedback: "Çok güzel! Aile içindeki yardımlaşma sevginin ve sorumluluğun bir parçasıdır." },
+            { id: "b", text: "Ailemle konuşurum; bazı ailelerin harçlık kuralları farklı olabilir, ama ev yardımı yine de görevimdir.", feedback: "Olgun bir yaklaşım! Her ailenin kuralı farklı olabilir; sorumluluk ise herkesin." },
+            { id: "c", text: "Para vermezlerse hiç yardım etmem.", feedback: "Ev, hepimizin yaşadığı yer. Sadece para için yardım etmek, aile dayanışmasını unutturabilir." },
+          ],
+          accepted: ["a", "b"],
+          hint: "Ailen sana yemek yaparken senden para istiyor mu?",
+          explanation: "Her emek ücret karşılığı değildir. Aile sorumlulukları, birlikte yaşamanın bir parçasıdır.",
+        },
+      ],
+      review: [
+        "Emek; zaman, beceri ve çabadır.",
+        "İnsanlar farklı mesleklerde çalışarak para kazanır.",
+        "Ailedeki yardımlaşma her zaman ücretli değildir.",
+      ],
+    },
+    {
+      id: "m06-l2",
+      moduleId: "m06",
+      title: "Ürün ve hizmet",
+      goal: "Ürün ile hizmet arasındaki farkı öğreneceğim.",
+      story: [
+        {
+          text: "Atölyede iki tezgâh var. Birinde Zehra el yapımı kitap ayraçları satıyor. Diğerinde Murat bozuk bisikletleri tamir ediyor.",
+          visual: { kind: "emoji", items: ["🔖", "🚲🔧"] },
+        },
+        {
+          text: "Ayraç, elle tutulan bir ürün. Tamir ise birinin bizim için yaptığı bir iş, yani hizmet. İkisi de değer oluşturur!",
+        },
+      ],
+      example: {
+        title: "Kuaförde mi, kırtasiyede mi?",
+        text: "Kırtasiyeden aldığın kalem bir üründür; onu eve götürürsün. Kuaförde saçını kestirmek ise bir hizmettir; eve bir eşya götürmezsin ama biri senin için bir iş yapmıştır.",
+        visual: { kind: "emoji", items: ["✏️ ürün", "💇 hizmet"] },
+      },
+      easierExample:
+        "Ürün: Eline alıp götürebildiğin şey. Hizmet: Biri senin için bir iş yaptığında aldığın şey. \"Bunu çantama koyabilir miyim?\" diye sor.",
+      activities: [
+        {
+          id: "m06-l2-q1",
+          type: "mcq",
+          topic: "kazanc",
+          difficulty: 1,
+          prompt: "Hangisi bir hizmettir?",
+          choices: [
+            { id: "a", text: "Doktorun muayene etmesi", emoji: "🩺" },
+            { id: "b", text: "Bir paket kurabiye", emoji: "🍪" },
+            { id: "c", text: "Bir oyuncak araba", emoji: "🚗" },
+          ],
+          answer: "a",
+          hint: "Hangisini çantana koyamazsın ama biri senin için yapar?",
+          explanation: "Muayene, doktorun bizim için yaptığı bir iştir, yani hizmettir. Kurabiye ve araba üründür.",
+        },
+        {
+          id: "m06-l2-q2",
+          type: "match",
+          topic: "kazanc",
+          difficulty: 2,
+          prompt: "Ürün mü, hizmet mi? Eşleştir.",
+          pairs: [
+            { left: "Kitap ayracı", right: "Ürün" },
+            { left: "Bisiklet tamiri", right: "Hizmet" },
+            { left: "Ekmek", right: "Ürün" },
+            { left: "Saç kesimi", right: "Hizmet" },
+          ],
+          hint: "Çantaya koyabildiklerin ürün, biri senin için yaptıysa hizmet.",
+          explanation: "Ayraç ve ekmek ürün; tamir ve saç kesimi hizmettir.",
+        },
+        {
+          id: "m06-l2-d1",
+          type: "decision",
+          topic: "kazanc",
+          difficulty: 2,
+          prompt: "Okulun kermesinde sınıfınla bir şey yapacaksınız (öğretmeninizin gözetiminde). Hangisi bir hizmet fikridir?",
+          visual: { kind: "emoji", items: ["🏫", "🎪"] },
+          choices: [
+            { id: "a", text: "Yüz boyama standı", feedback: "Evet! Ziyaretçiler bir eşya almıyor, sizin yaptığınız bir işten yararlanıyor." },
+            { id: "b", text: "Ev yapımı kurabiye satışı", feedback: "Kurabiye elle tutulan bir şey, yani bir ürün. Güzel bir fikir ama hizmet değil." },
+            { id: "c", text: "Kitap okuma köşesinde küçüklere masal okumak", feedback: "Bu da bir hizmet! Bir eşya değil, bir iş sunuyorsunuz." },
+          ],
+          accepted: ["a", "c"],
+          hint: "Ziyaretçi eve bir eşya mı götürüyor, yoksa biri onun için bir iş mi yapıyor?",
+          explanation: "Hizmet, birisi için yapılan bir iştir. Kermes gibi etkinlikler her zaman yetişkin gözetiminde yapılmalıdır.",
+        },
+      ],
+      review: [
+        "Ürün elle tutulan bir şeydir.",
+        "Hizmet, birisi için yapılan bir iştir.",
+        "Hem ürün hem hizmet değer oluşturur.",
+      ],
+    },
+    {
+      id: "m06-l3",
+      moduleId: "m06",
+      title: "Küçük işletme: gelir ve kâr",
+      goal: "Gelir ile kâr arasındaki farkı ve basit kâr hesabını öğreneceğim.",
+      story: [
+        {
+          text: "Zehra ayraç yapmak için malzemelere 30 sanal TL harcadı: karton, kurdele ve boya. 10 ayraç yaptı.",
+          visual: { kind: "emoji", items: ["📄", "🎀", "🎨", "→", "🔖×10"] },
+        },
+        {
+          text: "Her ayracı 5 TL'den sattı: 10 × 5 = 50 TL gelir. Ama malzeme 30 TL'ydi. Kâr = gelir - gider = 50 - 30 = 20 TL.",
+        },
+      ],
+      example: {
+        title: "Gelir ≠ Kâr",
+        text: "Gelir, satıştan gelen paranın tamamıdır. Kâr ise giderler çıkarıldıktan sonra kalandır. Zehra'nın geliri 50 TL, kârı 20 TL. Bu oyun bir hayal işletmesidir.",
+        visual: { kind: "price", items: [{ emoji: "💰", name: "Gelir", price: 50 }, { emoji: "🧾", name: "Gider", price: 30 }, { emoji: "⭐", name: "Kâr", price: 20 }] },
+      },
+      easierExample:
+        "Limonata standı düşün: Limon ve şekere 10 TL verdin, limonatalardan 25 TL topladın. Kasadaki 25 TL gelir. Ama 10 TL'yi zaten harcamıştın, gerçekten kazandığın 15 TL. İşte o kâr!",
+      activities: [
+        {
+          id: "m06-l3-q1",
+          type: "numeric",
+          topic: "kazanc",
+          difficulty: 2,
+          prompt: "Malzemeye 30 TL harcandı, satışlardan 50 TL gelir geldi. Kâr kaç TL?",
+          answer: 20,
+          unit: "TL",
+          hint: "Kâr = gelir - gider. 50 - 30 = ?",
+          explanation: "50 - 30 = 20 TL kâr.",
+        },
+        {
+          id: "m06-l3-q2",
+          type: "mcq",
+          topic: "kazanc",
+          difficulty: 3,
+          prompt: "Bir limonata standında gider 10 TL, gelir 25 TL. Hangisi doğru?",
+          choices: [
+            { id: "a", text: "Gelir 25 TL, kâr 15 TL" },
+            { id: "b", text: "Gelir 15 TL, kâr 25 TL" },
+            { id: "c", text: "Gelir ve kâr ikisi de 25 TL" },
+          ],
+          answer: "a",
+          hint: "Gelir kasadaki paranın tamamı. Kâr, giderleri çıkarınca kalan.",
+          explanation: "Gelir 25 TL. Kâr = 25 - 10 = 15 TL.",
+        },
+        {
+          id: "m06-l3-d1",
+          type: "decision",
+          topic: "kazanc",
+          difficulty: 3,
+          prompt: "Hayali ayraç işletmende malzemeler 30 TL. Ayraçları kaç TL'den satarsan 10 tanesinden kâr edersin?",
+          visual: { kind: "emoji", items: ["🔖×10", "🧾 30 TL"] },
+          choices: [
+            { id: "a", text: "Tanesi 2 TL", feedback: "10 × 2 = 20 TL gelir. 30 TL'lik gideri bile karşılamaz, 10 TL zarar olur." },
+            { id: "b", text: "Tanesi 4 TL", feedback: "10 × 4 = 40 TL gelir. 40 - 30 = 10 TL kâr. Müşteriler için de makul bir fiyat!" },
+            { id: "c", text: "Tanesi 6 TL", feedback: "10 × 6 = 60 TL gelir, 30 TL kâr. Ama fiyat yükselirse alan kişi azalabilir, bunu da düşün." },
+          ],
+          accepted: ["b", "c"],
+          hint: "Her fiyat için 10 ile çarp ve 30 ile karşılaştır.",
+          explanation: "Kâr için gelir giderden büyük olmalı. Fiyat çok yükselirse ise müşteri sayısı azalabilir.",
+        },
+      ],
+      review: [
+        "Gelir: Satıştan gelen paranın tamamı.",
+        "Gider: Malzeme gibi harcamalar.",
+        "Kâr = gelir - gider.",
+      ],
+    },
+  ],
+};
