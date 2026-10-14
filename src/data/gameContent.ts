@@ -92,69 +92,85 @@ export const MARKET_MISSIONS: MarketMission[] = [
   },
 ];
 
+/** Hafıza kartı yüzü: Yazı yerine simge ya da para görseli */
+export interface MemoryFace {
+  emoji?: string;
+  money?: number[];
+  /** Ekran okuyucular için açıklama (ekranda yazı olarak gösterilmez) */
+  alt: string;
+}
+
 export interface MemoryPair {
-  a: string;
-  b: string;
+  a: MemoryFace;
+  b: MemoryFace;
 }
 
 export interface MemorySet {
   id: string;
   title: string;
   emoji: string;
+  hint: string;
   pairs: MemoryPair[];
 }
 
+const e = (emoji: string, alt: string): MemoryFace => ({ emoji, alt });
+const m = (money: number[], alt: string): MemoryFace => ({ money, alt });
+
 export const MEMORY_SETS: MemorySet[] = [
   {
-    id: "kavram",
-    title: "Kavram ve açıklama",
-    emoji: "📚",
+    id: "meslek",
+    title: "Meslek ve iş",
+    emoji: "🧑‍🔧",
+    hint: "Her meslek sahibini yaptığı işle eşleştir.",
     pairs: [
-      { a: "Bütçe", b: "Para planı" },
-      { a: "Birikim", b: "İleri için ayırmak" },
-      { a: "Kâr", b: "Gelir - gider" },
-      { a: "Takas", b: "Eşyayı eşyayla değiş" },
-      { a: "İstek", b: "Bekleyebilir" },
-      { a: "Fırsat maliyeti", b: "Vazgeçilen seçenek" },
+      { a: e("🧑‍🍳", "Fırıncı"), b: e("🍞", "Ekmek") },
+      { a: e("🧑‍🏫", "Öğretmen"), b: e("📚", "Ders kitapları") },
+      { a: e("🧑‍🔧", "Tamirci"), b: e("🔧", "İngiliz anahtarı") },
+      { a: e("🧑‍⚕️", "Doktor"), b: e("🩺", "Steteskop") },
+      { a: e("🧑‍🌾", "Çiftçi"), b: e("🌾", "Buğday") },
+      { a: e("🧑‍🚒", "İtfaiyeci"), b: e("🚒", "İtfaiye aracı") },
     ],
   },
   {
-    id: "meslek",
-    title: "Meslek ve hizmet",
-    emoji: "🧑‍🔧",
+    id: "para",
+    title: "Aynı değerdeki paralar",
+    emoji: "💵",
+    hint: "Toplamı aynı olan paraları eşleştir.",
     pairs: [
-      { a: "🧑‍🍳 Fırıncı", b: "Ekmek pişirir" },
-      { a: "🧑‍🏫 Öğretmen", b: "Ders anlatır" },
-      { a: "🧑‍🔧 Tamirci", b: "Eşya onarır" },
-      { a: "🧑‍⚕️ Doktor", b: "Muayene eder" },
-      { a: "🧑‍🌾 Çiftçi", b: "Ürün yetiştirir" },
-      { a: "🧑‍🚒 İtfaiyeci", b: "Yangın söndürür" },
+      { a: m([50, 50], "İki tane 50 TL"), b: m([100], "100 TL") },
+      { a: m([20, 10], "20 TL ve 10 TL"), b: m([10, 10, 10], "Üç tane 10 TL") },
+      { a: m([5, 5], "İki tane 5 TL"), b: m([10], "10 TL") },
+      { a: m([100, 100], "İki tane 100 TL"), b: m([200], "200 TL") },
+      { a: m([0.5, 0.5], "İki tane 50 kuruş"), b: m([1], "1 TL") },
+      { a: m([20, 20, 10], "20 TL, 20 TL ve 10 TL"), b: m([50], "50 TL") },
+    ],
+  },
+  {
+    id: "ihtiyac",
+    title: "İhtiyaç ve çözümü",
+    emoji: "💧",
+    hint: "Her durumu ona gereken ihtiyaçla eşleştir.",
+    pairs: [
+      { a: e("🥵", "Susamış çocuk"), b: e("💧", "Su") },
+      { a: e("🥶", "Üşüyen çocuk"), b: e("🧥", "Mont") },
+      { a: e("🤒", "Hasta çocuk"), b: e("💊", "İlaç") },
+      { a: e("🏫", "Okul"), b: e("📒", "Defter") },
+      { a: e("😋", "Acıkmış çocuk"), b: e("🍲", "Yemek") },
+      { a: e("🦷", "Diş"), b: e("🪥", "Diş fırçası") },
     ],
   },
   {
     id: "guvenlik",
     title: "Risk ve doğru davranış",
     emoji: "🛡️",
+    hint: "Her riskli durumu doğru davranışla eşleştir.",
     pairs: [
-      { a: "Şifre isteyen mesaj", b: "Şifreyi verme" },
-      { a: "Garip link", b: "Tıklama, sor" },
-      { a: "\"Ödül için para gönder\"", b: "Yetişkine göster" },
-      { a: "Şifreni söyledin", b: "Hemen haber ver" },
-      { a: "Tanımadığın kişi", b: "Bilgi paylaşma" },
-      { a: "Kart PIN'i", b: "Gizli kalır" },
-    ],
-  },
-  {
-    id: "fiyat",
-    title: "Toplam ve tutar",
-    emoji: "🧮",
-    pairs: [
-      { a: "20 TL + 10 TL", b: "30 TL" },
-      { a: "50 TL - 15 TL", b: "35 TL" },
-      { a: "Hedef 80, var 30", b: "Kalan 50 TL" },
-      { a: "100 kuruş", b: "1 TL" },
-      { a: "İki tane 50 TL", b: "100 TL" },
-      { a: "Gelir 50, gider 30", b: "Kâr 20 TL" },
+      { a: e("🔐", "Şifre"), b: e("🤫", "Gizli tut") },
+      { a: e("🔗", "Garip bağlantı"), b: e("✋", "Tıklama, dur") },
+      { a: e("🎁", "Ödül vaat eden mesaj"), b: e("👩‍👧", "Bir yetişkine göster") },
+      { a: e("💳", "Kart bilgisi"), b: e("🙅", "Paylaşma") },
+      { a: e("🏠", "Ev adresi"), b: e("🚫", "Yabancıya söyleme") },
+      { a: e("⏰", "Acele ettiren mesaj"), b: e("🧘", "Dur ve düşün") },
     ],
   },
 ];

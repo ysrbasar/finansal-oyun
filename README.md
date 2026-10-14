@@ -48,7 +48,7 @@ src/
   lib/practice.ts       Uyarlanabilir pratik ve soru üreticileri
   lib/storage.ts        Yerel kayıt, bozuk veri temizleme, dışa/içe aktarma
   lib/store.ts          Durum deposu (her değişiklikte rozet/seviye kontrolü ve kayıt)
-  components/           Maskot Kumbi (SVG), para çizimleri, kavanoz, soru motoru, kutlama penceresi
+  components/           Maskot Kumbi (aslan kaşif, SVG), para çizimleri, kavanoz, soru motoru, kutlama penceresi
   screens/              Ekranlar
   games/                Mini oyunlar
 ```

@@ -19,7 +19,7 @@ interface Props {
 }
 
 /**
- * Kumbi: kaşif şapkalı turkuaz kumbara. Tamamen SVG, harici görsel yok.
+ * Kumbi: kaşif şapkalı, ₺ madalyonlu aslan kaşif. Tamamen SVG, harici görsel yok.
  */
 export function Mascot({ mood = "merhaba", size = 120, className, animate = true }: Props) {
   const happyEyes = mood === "mutlu" || mood === "kutlama" || mood === "yildiz";
@@ -39,18 +39,28 @@ export function Mascot({ mood = "merhaba", size = 120, className, animate = true
       transition={animate ? { duration: 2.6, repeat: Infinity, ease: "easeInOut" } : undefined}
     >
       {/* gölge */}
-      <ellipse cx="100" cy="186" rx="52" ry="8" fill="#192744" opacity="0.12" />
+      <ellipse cx="100" cy="190" rx="50" ry="7" fill="#192744" opacity="0.12" />
+
+      {/* kuyruk */}
+      <path d="M140 160 Q172 158 170 128" stroke="#E8A92A" strokeWidth="7" strokeLinecap="round" fill="none" />
+      <circle cx="170" cy="124" r="9" fill="#C8651B" />
 
       {/* bacaklar */}
-      <rect x="62" y="152" width="20" height="26" rx="9" fill="#1f9e8a" />
-      <rect x="118" y="152" width="20" height="26" rx="9" fill="#1f9e8a" />
+      <rect x="70" y="164" width="20" height="22" rx="9" fill="#E8A92A" />
+      <rect x="110" y="164" width="20" height="22" rx="9" fill="#E8A92A" />
+
+      {/* gövde */}
+      <ellipse cx="100" cy="152" rx="42" ry="30" fill="#FFC94D" />
+      <ellipse cx="100" cy="158" rx="24" ry="18" fill="#FFF1C9" />
+      {/* göbek madalyonu */}
+      <circle cx="100" cy="160" r="11" fill="#35C9B1" stroke="#1f9e8a" strokeWidth="3" />
+      <text x="100" y="165" textAnchor="middle" fontSize="13" fontWeight="800" fill="#192744" fontFamily="Fredoka, sans-serif">
+        ₺
+      </text>
 
       {/* sol kol */}
-      <motion.g
-        style={{ originX: 1, originY: 0.5 }}
-        animate={armsUp ? { rotate: 140 } : { rotate: 0 }}
-      >
-        <rect x="30" y="112" width="26" height="14" rx="7" fill="#2bb7a1" />
+      <motion.g style={{ originX: 1, originY: 0.5 }} animate={armsUp ? { rotate: 140 } : { rotate: 0 }}>
+        <rect x="36" y="136" width="26" height="14" rx="7" fill="#F4B942" />
       </motion.g>
       {/* sağ kol: el sallama */}
       <motion.g
@@ -66,67 +76,82 @@ export function Mascot({ mood = "merhaba", size = 120, className, animate = true
         }
         transition={wave ? { duration: 1.6, repeat: Infinity, repeatDelay: 1.2 } : { type: "spring", stiffness: 200 }}
       >
-        <rect x="144" y="112" width="26" height="14" rx="7" fill="#2bb7a1" />
+        <rect x="138" y="136" width="26" height="14" rx="7" fill="#F4B942" />
       </motion.g>
 
+      {/* yele */}
+      <g fill="#E07A2E">
+        {Array.from({ length: 14 }).map((_, i) => {
+          const a = (i / 14) * Math.PI * 2;
+          return <circle key={i} cx={100 + Math.cos(a) * 50} cy={88 + Math.sin(a) * 48} r="17" />;
+        })}
+        <circle cx="100" cy="88" r="54" />
+      </g>
+      <g fill="#C8651B" opacity="0.55">
+        {Array.from({ length: 14 }).map((_, i) => {
+          const a = ((i + 0.5) / 14) * Math.PI * 2;
+          return <circle key={i} cx={100 + Math.cos(a) * 56} cy={88 + Math.sin(a) * 54} r="7" />;
+        })}
+      </g>
+
       {/* kulaklar */}
-      <path d="M58 70 L66 38 L88 60 Z" fill="#2bb7a1" />
-      <path d="M142 70 L134 38 L112 60 Z" fill="#2bb7a1" />
-      <path d="M64 62 L68 48 L80 60 Z" fill="#ff9aa2" />
-      <path d="M136 62 L132 48 L120 60 Z" fill="#ff9aa2" />
+      <circle cx="64" cy="58" r="13" fill="#FFC94D" />
+      <circle cx="136" cy="58" r="13" fill="#FFC94D" />
+      <circle cx="64" cy="58" r="7" fill="#F4A261" />
+      <circle cx="136" cy="58" r="7" fill="#F4A261" />
 
-      {/* gövde */}
-      <ellipse cx="100" cy="112" rx="62" ry="54" fill="#35c9b1" />
-      <ellipse cx="84" cy="88" rx="30" ry="16" fill="#ffffff" opacity="0.18" />
-      {/* göbek madalyonu */}
-      <circle cx="100" cy="140" r="12" fill="#ffd166" stroke="#e8a92a" strokeWidth="3" />
-      <text x="100" y="145" textAnchor="middle" fontSize="14" fontWeight="800" fill="#192744" fontFamily="Fredoka, sans-serif">
-        ₺
-      </text>
+      {/* yüz */}
+      <circle cx="100" cy="92" r="42" fill="#FFD166" />
+      <ellipse cx="86" cy="72" rx="20" ry="10" fill="#ffffff" opacity="0.22" />
 
-      {/* kaşif şapkası + para yuvası */}
-      <ellipse cx="100" cy="62" rx="44" ry="9" fill="#e8a92a" />
-      <path d="M70 62 Q72 32 100 30 Q128 32 130 62 Z" fill="#ffd166" />
-      <rect x="72" y="52" width="56" height="8" rx="3" fill="#ff7a70" />
-      <rect x="92" y="38" width="16" height="5" rx="2.5" fill="#192744" opacity="0.7" />
+      {/* kaşif şapkası */}
+      <ellipse cx="100" cy="52" rx="38" ry="8" fill="#1f9e8a" />
+      <path d="M74 52 Q76 24 100 22 Q124 24 126 52 Z" fill="#35C9B1" />
+      <rect x="76" y="43" width="48" height="7" rx="3" fill="#FF7A70" />
 
       {/* yanaklar */}
-      <ellipse cx="66" cy="120" rx="9" ry="6" fill="#ff7a70" opacity="0.45" />
-      <ellipse cx="134" cy="120" rx="9" ry="6" fill="#ff7a70" opacity="0.45" />
+      <ellipse cx="72" cy="106" rx="8" ry="5" fill="#FF7A70" opacity="0.45" />
+      <ellipse cx="128" cy="106" rx="8" ry="5" fill="#FF7A70" opacity="0.45" />
 
       {/* gözler */}
       {happyEyes ? (
         <g stroke="#192744" strokeWidth="5" strokeLinecap="round" fill="none">
-          <path d="M70 100 Q78 90 86 100" />
-          <path d="M114 100 Q122 90 130 100" />
+          <path d="M74 90 Q82 80 90 90" />
+          <path d="M110 90 Q118 80 126 90" />
         </g>
       ) : (
         <g>
-          <ellipse cx="78" cy="98" rx={wideEyes ? 9 : 7} ry={wideEyes ? 11 : 9} fill="#192744" />
-          <ellipse cx="122" cy="98" rx={wideEyes ? 9 : 7} ry={wideEyes ? 11 : 9} fill="#192744" />
-          <circle cx="80" cy="94" r="2.6" fill="#fff" />
-          <circle cx="124" cy="94" r="2.6" fill="#fff" />
+          <ellipse cx="82" cy="88" rx={wideEyes ? 8.5 : 6.5} ry={wideEyes ? 10.5 : 8.5} fill="#192744" />
+          <ellipse cx="118" cy="88" rx={wideEyes ? 8.5 : 6.5} ry={wideEyes ? 10.5 : 8.5} fill="#192744" />
+          <circle cx="84" cy="84" r="2.5" fill="#fff" />
+          <circle cx="120" cy="84" r="2.5" fill="#fff" />
         </g>
       )}
       {mood === "cesaret" && (
         <g stroke="#192744" strokeWidth="3.5" strokeLinecap="round">
-          <path d="M68 84 L86 88" />
-          <path d="M132 84 L114 88" />
+          <path d="M72 74 L90 78" />
+          <path d="M128 74 L110 78" />
         </g>
       )}
 
-      {/* burun (kumbara burnu) */}
-      <ellipse cx="100" cy="116" rx="16" ry="11" fill="#7fe0cf" />
-      <ellipse cx="94" cy="116" rx="3" ry="4" fill="#1f9e8a" />
-      <ellipse cx="106" cy="116" rx="3" ry="4" fill="#1f9e8a" />
+      {/* ağız çevresi ve burun */}
+      <ellipse cx="91" cy="112" rx="12" ry="9" fill="#FFF4D6" />
+      <ellipse cx="109" cy="112" rx="12" ry="9" fill="#FFF4D6" />
+      <path d="M92 101 Q100 97 108 101 Q104 110 100 110 Q96 110 92 101 Z" fill="#7a3b12" />
+      <g fill="#C8651B" opacity="0.6">
+        <circle cx="86" cy="112" r="1.4" />
+        <circle cx="90" cy="116" r="1.4" />
+        <circle cx="114" cy="112" r="1.4" />
+        <circle cx="110" cy="116" r="1.4" />
+      </g>
 
       {/* ağız */}
       {mood === "vay" ? (
-        <ellipse cx="100" cy="134" rx="6" ry="7" fill="#192744" />
+        <ellipse cx="100" cy="124" rx="5" ry="6" fill="#192744" />
       ) : mood === "cesaret" ? (
-        <path d="M90 132 Q100 138 110 132" stroke="#192744" strokeWidth="4" strokeLinecap="round" fill="none" />
+        <path d="M92 123 Q100 128 108 123" stroke="#192744" strokeWidth="3.5" strokeLinecap="round" fill="none" />
       ) : (
-        <path d="M86 130 Q100 144 114 130" stroke="#192744" strokeWidth="4" strokeLinecap="round" fill={happyEyes ? "#192744" : "none"} />
+        <path d="M90 120 Q100 132 110 120" stroke="#192744" strokeWidth="3.5" strokeLinecap="round" fill={happyEyes ? "#192744" : "none"} />
       )}
 
       {/* duruma özel aksesuarlar */}

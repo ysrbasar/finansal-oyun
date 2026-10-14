@@ -1,13 +1,26 @@
+/** Uygulama logosu: Kaşif şapkalı aslan Kumbi'nin yüzü (ana ekran ikonuyla aynı) */
 export function Logo({ size = 64 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" role="img" aria-label="Minik Finans Kaşifleri logosu">
-      <rect width="64" height="64" rx="18" fill="#192744" />
-      <circle cx="32" cy="34" r="17" fill="#FFD166" stroke="#E8A92A" strokeWidth="3" />
-      <text x="32" y="41" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontWeight="700" fontSize="20" fill="#192744">
-        ₺
-      </text>
-      <path d="M32 6 L36 14 L32 12 L28 14 Z" fill="#35C9B1" />
-      <circle cx="32" cy="34" r="22" fill="none" stroke="#35C9B1" strokeWidth="2.5" strokeDasharray="4 5" />
+    <svg width={size} height={size} viewBox="0 0 512 512" role="img" aria-label="Minik Finans Kaşifleri logosu">
+      <rect width="512" height="512" rx="112" fill="#192744" />
+      <g transform="translate(256 262) scale(0.86) translate(-256 -262)">
+    <g fill="#E07A2E">
+      <circle cx="412.0" cy="262.0" r="52"/><circle cx="396.6" cy="327.1" r="52"/><circle cx="353.3" cy="379.3" r="52"/><circle cx="290.7" cy="408.2" r="52"/><circle cx="221.3" cy="408.2" r="52"/><circle cx="158.7" cy="379.3" r="52"/><circle cx="115.4" cy="327.1" r="52"/><circle cx="100.0" cy="262.0" r="52"/><circle cx="115.4" cy="196.9" r="52"/><circle cx="158.7" cy="144.7" r="52"/><circle cx="221.3" cy="115.8" r="52"/><circle cx="290.7" cy="115.8" r="52"/><circle cx="353.3" cy="144.7" r="52"/><circle cx="396.6" cy="196.9" r="52"/>
+      <circle cx="256" cy="262" r="168"/>
+    </g>
+    <circle cx="160" cy="150" r="38" fill="#FFC94D"/><circle cx="352" cy="150" r="38" fill="#FFC94D"/>
+    <circle cx="160" cy="150" r="20" fill="#F4A261"/><circle cx="352" cy="150" r="20" fill="#F4A261"/>
+    <circle cx="256" cy="272" r="132" fill="#FFD166"/>
+    <ellipse cx="256" cy="150" rx="118" ry="24" fill="#1f9e8a"/>
+    <path d="M178 150 Q184 66 256 60 Q328 66 334 150 Z" fill="#35C9B1"/>
+    <rect x="184" y="122" width="144" height="22" rx="9" fill="#FF7A70"/>
+    <ellipse cx="212" cy="262" rx="20" ry="26" fill="#192744"/><ellipse cx="300" cy="262" rx="20" ry="26" fill="#192744"/>
+    <circle cx="218" cy="251" r="7.5" fill="#fff"/><circle cx="306" cy="251" r="7.5" fill="#fff"/>
+    <ellipse cx="164" cy="316" rx="24" ry="15" fill="#FF7A70" opacity="0.45"/><ellipse cx="348" cy="316" rx="24" ry="15" fill="#FF7A70" opacity="0.45"/>
+    <ellipse cx="229" cy="334" rx="36" ry="27" fill="#FFF4D6"/><ellipse cx="283" cy="334" rx="36" ry="27" fill="#FFF4D6"/>
+    <path d="M232 302 Q256 290 280 302 Q268 330 256 330 Q244 330 232 302 Z" fill="#7a3b12"/>
+    <path d="M226 362 Q256 392 286 362" stroke="#192744" strokeWidth="10" strokeLinecap="round" fill="none"/>
+      </g>
     </svg>
   );
 }
